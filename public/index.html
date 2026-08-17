@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undercover / Bureau des identités douteuses</title>
+<meta name="description" content="Jeu d'identités cachées en ligne. Crée une partie, partage le code, démasque les infiltrés.">
+<meta name="theme-color" content="#141a15">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d2a21'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' text-anchor='middle' fill='%23c8a44b'%3EU%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <a class="brand" href="/">
+    <span class="brand-mark">U</span>
+    <span class="brand-text">
+      <strong>Undercover</strong>
+      <em>Bureau des identités douteuses</em>
+    </span>
+  </a>
+  <div class="masthead-side">
+    <div id="room-badge" class="room-badge" hidden>
+      <span class="room-badge-label">Dossier</span>
+      <span id="room-badge-code" class="room-badge-code">----</span>
+      <button id="btn-copy-link" class="ghost-btn" type="button">Copier le lien</button>
+    </div>
+    <span id="link-status" class="link-status" data-state="off">hors ligne</span>
+    <button id="btn-rules" class="ghost-btn" type="button">Regles</button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ============================ HOME ============================ -->
+  <section id="screen-home" class="screen">
+    <div class="hero">
+      <div class="hero-file">
+        <p class="eyebrow">Dossier ouvert <span class="dot"></span> <span id="stat-pairs">500</span> paires <span class="dot"></span> <span id="stat-themes">20</span> thèmes</p>
+        <h1 class="hero-title" aria-label="Undercover">
+          <span class="hero-word">Undercover</span>
+        </h1>
+        <p class="hero-lede">
+          La majorité reçoit un mot. Les infiltrés en reçoivent un autre, presque le même.
+          Mr White n'a rien du tout. Un indice chacun, un vote, et on voit qui bluffe le mieux.
+        </p>
+        <ul class="hero-facts">
+          <li><span>3 a 16</span> joueurs</li>
+          <li><span>1 PC</span> par joueur</li>
+          <li><span>0</span> installation</li>
+        </ul>
+      </div>
+
+      <div class="hero-actions">
+        <div class="card card-form">
+          <h2 class="card-title">Ton identité de service</h2>
+          <label class="field">
+            <span class="field-label">Pseudo</span>
+            <input id="input-name" type="text" maxlength="18" autocomplete="nickname" placeholder="ex. Clement" spellcheck="false">
+          </label>
+          <div class="split">
+            <button id="btn-create" class="primary-btn" type="button">Ouvrir une partie</button>
+          </div>
+          <div class="rule-line"><span>ou rejoindre un dossier existant</span></div>
+          <div class="join-row">
+            <label class="field field-code">
+              <span class="field-label">Code</span>
+              <input id="input-code" type="text" maxlength="4" placeholder="ABCD" autocomplete="off" spellcheck="false">
+            </label>
+            <button id="btn-join" class="secondary-btn" type="button">Rejoindre</button>
+          </div>
+          <p id="home-error" class="form-error" role="alert" hidden></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="roles-strip">
+      <article class="role-card" data-role="civil">
+        <h3>Civil</h3>
+        <p>Tu connais le mot de la majorité. Donne un indice assez vague pour ne pas nourrir l'infiltré, assez précis pour prouver que tu es dedans.</p>
+        <span class="role-score">2 points</span>
+      </article>
+      <article class="role-card" data-role="undercover">
+        <h3>Undercover</h3>
+        <p>Ton mot ressemble au leur sans être le bon. Écoute, recopie le ton du groupe, survis jusqu'à la parité.</p>
+        <span class="role-score">10 points</span>
+      </article>
+      <article class="role-card" data-role="mr-white">
+        <h3>Mr White</h3>
+        <p>Aucun mot. Tu improvises à partir des indices des autres. Si on t'élimine, il te reste une chance de deviner le mot civil.</p>
+        <span class="role-score">6 points</span>
+      </article>
+    </section>
+  </section>
+
+  <!-- ============================ LOBBY ============================ -->
+  <section id="screen-lobby" class="screen" hidden>
+    <div class="lobby-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Personnes présentes</h2>
+          <span id="lobby-count" class="panel-meta">0 / 16</span>
+        </div>
+        <ul id="lobby-roster" class="roster"></ul>
+        <div class="panel-foot">
+          <p id="lobby-hint" class="hint">Partage le lien du dossier pour remplir la salle.</p>
+          <button id="btn-start" class="primary-btn" type="button" disabled>Lancer la manche</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Paramètres de la manche</h2>
+          <span id="settings-lock" class="panel-meta">hôte uniquement</span>
+        </div>
+
+        <fieldset id="settings-form" class="settings">
+          <div class="setting">
+            <div class="setting-head">
+              <span class="setting-label">Répartition des rôles</span>
+              <label class="switch">
+                <input id="set-auto-roles" type="checkbox" checked>
+                <span>automatique</span>
+              </label>
+            </div>
+            <div id="manual-roles" class="stepper-row">
+              <div class="stepper">
+                <span class="stepper-label">Undercover</span>
+                <button class="step-btn" data-step="undercover_count" data-delta="-1" type="button">moins</button>
+                <output id="out-undercover">1</output>
+                <button class="step-btn" data-step="undercover_count" data-delta="1" type="button">plus</button>
+              </div>
+              <div class="stepper">
+                <span class="stepper-label">Mr White</span>
+                <button class="step-btn" data-step="mr_white_count" data-delta="-1" type="button">moins</button>
+                <output id="out-mrwhite">0</output>
+                <button class="step-btn" data-step="mr_white_count" data-delta="1" type="button">plus</button>
+              </div>
+            </div>
+            <p id="roles-preview" class="hint"></p>
+          </div>
+
+          <div class="setting">
+            <div class="setting-head">
+              <span class="setting-label">Temps de débat</span>
+              <span id="out-timer" class="setting-value">90 s</span>
+            </div>
+            <input id="set-timer" type="range" min="0" max="300" step="15" value="90">
+            <p class="hint">0 seconde : l'hôte ouvre le vote quand il veut.</p>
+          </div>
+
+          <div class="setting">
+            <label class="check">
+              <input id="set-typed-clues" type="checkbox" checked>
+              <span><strong>Indices écrits dans le jeu</strong><em>Chacun son tour, un indice tapé et archivé. Décoche si vous parlez en vocal.</em></span>
+            </label>
+            <label class="check">
+              <input id="set-reveal-role" type="checkbox">
+              <span><strong>Annoncer son rôle à chacun</strong><em>Par défaut personne ne sait s'il est civil ou undercover. Plus tendu.</em></span>
+            </label>
+          </div>
+
+          <div class="setting">
+            <div class="setting-head">
+              <span class="setting-label">Thèmes</span>
+              <span class="setting-actions">
+                <button id="btn-themes-all" class="mini-btn" type="button">tout</button>
+                <button id="btn-themes-none" class="mini-btn" type="button">aucun</button>
+              </span>
+            </div>
+            <div id="theme-chips" class="chips"></div>
+            <p id="themes-hint" class="hint">Aucun thème coché : tirage dans les 500 paires.</p>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ GAME ============================ -->
+  <section id="screen-game" class="screen" hidden>
+    <div class="status-bar">
+      <div class="status-left">
+        <span class="status-round">Manche <output id="status-round">1</output></span>
+        <span id="status-phase" class="status-phase">Distribution</span>
+      </div>
+      <div class="status-right">
+        <span id="status-timer" class="status-timer" hidden>0:00</span>
+        <span id="status-theme" class="status-theme"></span>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="lamp-rig" aria-hidden="true">
+        <span class="lamp-cord"></span>
+        <span class="lamp-shade"></span>
+        <span class="lamp-beam"></span>
+      </div>
+      <ul id="suspects" class="suspects"></ul>
+    </div>
+
+    <div class="play-grid">
+      <div class="panel panel-action">
+        <div class="panel-head">
+          <h2 class="panel-title" id="action-title">En attente</h2>
+          <span class="panel-meta" id="action-meta"></span>
+        </div>
+        <div id="action-body" class="action-body"></div>
+      </div>
+
+      <div class="panel panel-log">
+        <div class="panel-head">
+          <h2 class="panel-title">Indices archivés</h2>
+          <span class="panel-meta" id="log-meta"></span>
+        </div>
+        <div id="clue-log" class="clue-log"></div>
+      </div>
+
+      <div class="panel panel-chat">
+        <div class="panel-head">
+          <h2 class="panel-title">Salle</h2>
+          <span class="panel-meta">chat libre</span>
+        </div>
+        <div id="chat-log" class="chat-log"></div>
+        <div class="chat-input">
+          <input id="chat-text" type="text" maxlength="240" placeholder="Accuser, défendre, semer le doute">
+          <button id="chat-send" class="mini-btn" type="button">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ END ============================ -->
+  <section id="screen-end" class="screen" hidden>
+    <div class="verdict">
+      <p class="eyebrow" id="verdict-eyebrow">Dossier clos</p>
+      <h2 id="verdict-title" class="verdict-title">Manche terminée</h2>
+      <p id="verdict-text" class="verdict-text"></p>
+      <div class="verdict-words">
+        <div class="word-slab" data-side="civil">
+          <span>Mot des civils</span>
+          <strong id="verdict-civil">-</strong>
+        </div>
+        <div class="word-slab" data-side="undercover">
+          <span>Mot des undercover</span>
+          <strong id="verdict-undercover">-</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title">Fiches déclassifiées</h2>
+        <span class="panel-meta" id="verdict-theme"></span>
+      </div>
+      <ul id="reveal-list" class="reveal-list"></ul>
+      <div class="panel-foot">
+        <p class="hint">Civil 2 pts <span class="dot"></span> Undercover 10 pts <span class="dot"></span> Mr White 6 pts</p>
+        <div class="btn-row">
+          <button id="btn-lobby" class="secondary-btn" type="button">Retour au salon</button>
+          <button id="btn-again" class="primary-btn" type="button">Manche suivante</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+<div id="modal-rules" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+    <button id="btn-rules-close" class="modal-close" type="button" aria-label="Fermer">fermer</button>
+    <h2 id="rules-title" class="modal-title">Déroulé d'une manche</h2>
+    <ol class="steps">
+      <li><strong>Distribution.</strong> Chacun lit sa fiche en privé. Les civils partagent un mot, les undercover en ont un proche, Mr White n'a rien.</li>
+      <li><strong>Indices.</strong> Dans l'ordre du tour, un indice par joueur. Ni le mot exact, ni une définition de dictionnaire.</li>
+      <li><strong>Débat.</strong> Le temps affiché sert à s'accuser. Les indices restent archivés à côté.</li>
+      <li><strong>Vote.</strong> Un vote par joueur encore en jeu. La majorité élimine, le rôle est révélé. En cas d'égalité, les joueurs non concernés tranchent.</li>
+      <li><strong>Mr White éliminé.</strong> Il tente de deviner le mot des civils. Réussi, il gagne seul la manche.</li>
+      <li><strong>Fin.</strong> Les civils gagnent en éliminant tous les infiltrés. Les infiltrés gagnent dès qu'ils sont aussi nombreux que les civils.</li>
+    </ol>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

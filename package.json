@@ -1,0 +1,16 @@
+{
+  "name": "undercover-online",
+  "version": "1.0.0",
+  "description": "Undercover / Mr White multijoueur en ligne, 500 paires de mots.",
+  "main": "server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "license": "MIT",
+  "private": true
+}

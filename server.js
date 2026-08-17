@@ -9,7 +9,7 @@ const { WebSocketServer } = require('ws');
 const PORT = Number(process.env.PORT || 8080);
 const BIND_HOST = process.env.HOST || '0.0.0.0';
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const DATA_FILE = process.env.PAIRS_FILE || path.join(__dirname, 'data', 'undercover_paires.json');
+const DATA_DIR = path.join(__dirname, 'data');
 
 const MAX_ROOMS = 400;
 const MAX_PLAYERS = 16;
@@ -21,14 +21,52 @@ const CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const POINTS = { civil: 2, undercover: 10, mr_white: 6 };
 
 /* ------------------------------------------------------------------ */
-/* Word pairs                                                          */
+/* Word data                                                           */
+/* Deux formats de theme acceptes, cumulables dans un meme fichier :   */
+/*   "paires": [{civil, undercover}, ...]  paires fixes                */
+/*   "mots":   ["a", "b", ...]  deux mots distincts tires du theme     */
 /* ------------------------------------------------------------------ */
 
-const raw_data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-const themes = raw_data.themes.map((t) => ({ nom: t.nom, paires: t.paires }));
+const data_files = process.env.PAIRS_FILE
+  ? [process.env.PAIRS_FILE]
+  : fs.readdirSync(DATA_DIR)
+      .filter((f) => f.endsWith('.json'))
+      .sort()
+      .map((f) => path.join(DATA_DIR, f));
+
+const themes = [];
+for (const file of data_files) {
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const t of raw.themes || []) {
+    if (!t || typeof t.nom !== 'string') continue;
+    const paires = Array.isArray(t.paires)
+      ? t.paires.filter((p) => p && typeof p.civil === 'string' && typeof p.undercover === 'string')
+      : [];
+    const mots = Array.isArray(t.mots)
+      ? t.mots.filter((m) => typeof m === 'string' && m.trim().length)
+      : [];
+    if (!paires.length && mots.length < 2) continue;
+    let theme = themes.find((x) => x.nom === t.nom);
+    if (!theme) {
+      theme = { nom: t.nom, paires: [], mots: [] };
+      themes.push(theme);
+    }
+    theme.paires.push(...paires);
+    theme.mots.push(...mots);
+  }
+}
+if (!themes.length) {
+  console.error('[data] aucun theme utilisable dans', data_files.join(', '));
+  process.exit(1);
+}
+
+function themeCount(t) {
+  return t.paires.length + (t.mots.length >= 2 ? t.mots.length : 0);
+}
+
 const theme_names = themes.map((t) => t.nom);
-const total_pairs = themes.reduce((acc, t) => acc + t.paires.length, 0);
-console.log(`[data] loaded ${themes.length} themes / ${total_pairs} pairs from ${DATA_FILE}`);
+const total_entries = themes.reduce((acc, t) => acc + themeCount(t), 0);
+console.log(`[data] loaded ${themes.length} themes / ${total_entries} entries from ${data_files.length} file(s)`);
 
 /* ------------------------------------------------------------------ */
 /* Utils                                                               */
@@ -268,14 +306,23 @@ function fail(ws, message) {
 /* Game flow                                                           */
 /* ------------------------------------------------------------------ */
 
+function drawFromTheme(theme) {
+  const mots_usable = theme.mots.length >= 2 ? theme.mots.length : 0;
+  const roll = randomInt(theme.paires.length + mots_usable);
+  if (roll < theme.paires.length) return theme.paires[roll];
+  const first = randomInt(theme.mots.length);
+  let second = randomInt(theme.mots.length - 1);
+  if (second >= first) second += 1;
+  return { civil: theme.mots[first], undercover: theme.mots[second] };
+}
+
 function pickPair(selected_themes) {
   const pool = selected_themes && selected_themes.length
     ? themes.filter((t) => selected_themes.includes(t.nom))
     : themes;
   const usable = pool.length ? pool : themes;
   const theme = usable[randomInt(usable.length)];
-  const pair = theme.paires[randomInt(theme.paires.length)];
-  return { theme: theme.nom, pair };
+  return { theme: theme.nom, pair: drawFromTheme(theme) };
 }
 
 function resolvedCounts(room, player_count) {
@@ -888,14 +935,14 @@ const server = http.createServer((req, res) => {
 
   if (pathname === '/healthz') {
     res.writeHead(200, { 'content-type': 'application/json' });
-    res.end(JSON.stringify({ ok: true, rooms: rooms.size, themes: themes.length, pairs: total_pairs }));
+    res.end(JSON.stringify({ ok: true, rooms: rooms.size, themes: themes.length, pairs: total_entries }));
     return;
   }
   if (pathname === '/api/themes') {
     res.writeHead(200, { 'content-type': 'application/json; charset=utf-8' });
     res.end(JSON.stringify({
-      themes: themes.map((t) => ({ nom: t.nom, count: t.paires.length })),
-      total: total_pairs
+      themes: themes.map((t) => ({ nom: t.nom, count: themeCount(t) })),
+      total: total_entries
     }));
     return;
   }
@@ -953,7 +1000,7 @@ wss.on('connection', (ws) => {
     broadcast(room);
   });
   ws.on('error', (err) => console.error('[ws] socket error', err.message));
-  send(ws, { type: 'hello', themes: themes.map((t) => ({ nom: t.nom, count: t.paires.length })) });
+  send(ws, { type: 'hello', themes: themes.map((t) => ({ nom: t.nom, count: themeCount(t) })) });
 });
 
 const heartbeat = setInterval(() => {

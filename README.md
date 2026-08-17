@@ -25,7 +25,22 @@ npm start
 ```
 
 Variables d'environnement : `PORT` (8080), `HOST` (0.0.0.0), `PAIRS_FILE`
-(chemin du JSON de paires).
+(chemin d'un JSON de mots unique ; par défaut tous les `.json` de `data/`
+sont chargés et fusionnés).
+
+## Format des fichiers de mots
+
+Chaque fichier de `data/` contient `{ "themes": [...] }`. Un thème accepte
+deux formats, cumulables :
+
+```json
+{ "nom": "Anime", "paires": [{ "civil": "Naruto", "undercover": "One Piece" }] }
+{ "nom": "Shonen cultes", "mots": ["Naruto", "One Piece", "Bleach"] }
+```
+
+Avec `paires`, la paire est tirée telle quelle. Avec `mots`, le serveur tire
+deux mots différents du même thème (il faut au moins 2 mots). Les thèmes de
+même nom présents dans plusieurs fichiers sont fusionnés.
 
 Pour tester à plusieurs sur le réseau local, les autres PC ouvrent
 `http://IP_DE_TA_MACHINE:8080`.
@@ -59,7 +74,7 @@ systemctl enable --now undercover
 
 ```
 server.js                moteur de jeu + serveur statique + WebSocket (/ws)
-data/undercover_paires.json   les 500 paires
+data/*.json              les mots (paires fixes et/ou listes par theme)
 public/index.html        squelette des 4 écrans (accueil, salon, partie, verdict)
 public/style.css         design system (feutre vert, laiton, papier, tampon rouge)
 public/app.js            client : état, rendu ciblé, interactions

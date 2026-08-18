@@ -1,1005 +1,789 @@
 {
   "jeu": "Undercover",
-  "description": "Listes de mots par theme precis. Le tirage prend deux mots differents d'un meme theme : l'un pour la majorite, l'autre pour les infiltres.",
+  "description": "Mega-liste fusionnée. Thèmes variés allant du tryhard anime/dev/muscu aux classiques, avec des jeux de mots redoutables.",
   "themes": [
     {
       "nom": "Shonen cultes",
       "mots": [
-        "Naruto",
-        "One Piece",
-        "Bleach",
-        "Dragon Ball",
-        "Hunter x Hunter",
-        "Fairy Tail",
-        "Black Clover",
-        "My Hero Academia",
-        "Jujutsu Kaisen",
-        "Demon Slayer",
-        "Chainsaw Man",
-        "Tokyo Revengers",
-        "Fullmetal Alchemist",
-        "One Punch Man",
-        "L'Attaque des Titans",
-        "Blue Lock",
-        "Haikyuu",
-        "Kuroko no Basket",
-        "Yu Yu Hakusho",
-        "Saint Seiya"
+        "Naruto", "One Piece", "Bleach", "Dragon Ball", "Hunter x Hunter",
+        "Fairy Tail", "Black Clover", "My Hero Academia", "Jujutsu Kaisen",
+        "Demon Slayer", "Chainsaw Man", "Tokyo Revengers", "Fullmetal Alchemist",
+        "One Punch Man", "L'Attaque des Titans", "Blue Lock", "Haikyuu",
+        "Kuroko no Basket", "Yu Yu Hakusho", "Saint Seiya"
       ]
     },
     {
       "nom": "Films du studio Ghibli",
       "mots": [
-        "Mon voisin Totoro",
-        "Le Voyage de Chihiro",
-        "Princesse Mononoke",
-        "Le Chateau ambulant",
-        "Ponyo sur la falaise",
-        "Kiki la petite sorciere",
-        "Nausicaa",
-        "Porco Rosso",
-        "Le Tombeau des lucioles",
-        "Arrietty",
-        "Le Chateau dans le ciel",
-        "Le Vent se leve",
-        "Pompoko",
-        "Souvenirs goutte a goutte",
-        "La Colline aux coquelicots",
-        "Le Conte de la princesse Kaguya",
-        "Si tu tends l'oreille",
-        "Le Royaume des chats",
-        "Aya et la sorciere",
-        "Les Contes de Terremer"
+        "Mon voisin Totoro", "Le Voyage de Chihiro", "Princesse Mononoke",
+        "Le Chateau ambulant", "Ponyo sur la falaise", "Kiki la petite sorciere",
+        "Nausicaa", "Porco Rosso", "Le Tombeau des lucioles", "Arrietty",
+        "Le Chateau dans le ciel", "Le Vent se leve", "Pompoko",
+        "Souvenirs goutte a goutte", "La Colline aux coquelicots",
+        "Le Conte de la princesse Kaguya", "Si tu tends l'oreille",
+        "Le Royaume des chats", "Aya et la sorciere", "Les Contes de Terremer"
       ]
     },
     {
       "nom": "Personnages de Dragon Ball",
       "mots": [
-        "Goku",
-        "Vegeta",
-        "Piccolo",
-        "Gohan",
-        "Trunks",
-        "Krilin",
-        "Freezer",
-        "Cell",
-        "Majin Boo",
-        "Beerus",
-        "Whis",
-        "Bulma",
-        "Yamcha",
-        "Tortue Geniale",
-        "Ten Shin Han",
-        "Broly",
-        "Zamasu",
-        "Jiren",
-        "Raditz",
-        "Nappa"
+        "Goku", "Vegeta", "Piccolo", "Gohan", "Trunks", "Krilin", "Freezer",
+        "Cell", "Majin Boo", "Beerus", "Whis", "Bulma", "Yamcha",
+        "Tortue Geniale", "Ten Shin Han", "Broly", "Zamasu", "Jiren", "Raditz", "Nappa"
       ]
     },
     {
       "nom": "Super-heros Marvel",
       "mots": [
-        "Iron Man",
-        "Captain America",
-        "Thor",
-        "Hulk",
-        "Spider-Man",
-        "Black Widow",
-        "Doctor Strange",
-        "Black Panther",
-        "Ant-Man",
-        "Daredevil",
-        "Wolverine",
-        "Deadpool",
-        "Vision",
-        "Faucon",
-        "Hawkeye",
-        "Scarlet Witch",
-        "Star-Lord",
-        "Groot",
-        "Silver Surfer",
-        "Le Punisher"
+        "Iron Man", "Captain America", "Thor", "Hulk", "Spider-Man",
+        "Black Widow", "Doctor Strange", "Black Panther", "Ant-Man",
+        "Daredevil", "Wolverine", "Deadpool", "Vision", "Faucon",
+        "Hawkeye", "Scarlet Witch", "Star-Lord", "Groot", "Silver Surfer", "Le Punisher"
       ]
     },
     {
       "nom": "Villains de comics",
       "mots": [
-        "Thanos",
-        "Loki",
-        "Le Joker",
-        "Lex Luthor",
-        "Magneto",
-        "Docteur Fatalis",
-        "Venom",
-        "Ultron",
-        "Le Bouffon Vert",
-        "Bane",
-        "Thunderbolt Ross",
-        "Red Skull",
-        "Sinistro",
-        "Harley Quinn",
-        "Le Sphinx",
-        "Kingpin",
-        "Galactus",
-        "Mystique",
-        "Deathstroke",
-        "Le Pingouin"
+        "Thanos", "Loki", "Le Joker", "Lex Luthor", "Magneto", "Docteur Fatalis",
+        "Venom", "Ultron", "Le Bouffon Vert", "Bane", "Thunderbolt Ross",
+        "Red Skull", "Sinistro", "Harley Quinn", "Le Sphinx", "Kingpin",
+        "Galactus", "Mystique", "Deathstroke", "Le Pingouin"
       ]
     },
     {
       "nom": "Chaines de fast-food",
       "mots": [
-        "McDonald's",
-        "Burger King",
-        "KFC",
-        "Quick",
-        "Subway",
-        "Domino's Pizza",
-        "Pizza Hut",
-        "Five Guys",
-        "O'Tacos",
-        "Wendy's",
-        "Popeyes",
-        "Chipotle",
-        "Taco Bell",
-        "Starbucks",
-        "Dunkin'",
-        "Papa John's",
-        "Shake Shack",
-        "Nando's",
-        "In-N-Out",
-        "Krispy Kreme"
+        "McDonald's", "Burger King", "KFC", "Quick", "Subway", "Domino's Pizza",
+        "Pizza Hut", "Five Guys", "O'Tacos", "Wendy's", "Popeyes", "Chipotle",
+        "Taco Bell", "Starbucks", "Dunkin'", "Papa John's", "Shake Shack",
+        "Nando's", "In-N-Out", "Krispy Kreme"
       ]
     },
     {
       "nom": "Plats italiens",
       "mots": [
-        "Pizza margherita",
-        "Lasagnes",
-        "Carbonara",
-        "Risotto",
-        "Gnocchis",
-        "Osso buco",
-        "Tiramisu",
-        "Focaccia",
-        "Bruschetta",
-        "Arancini",
-        "Saltimbocca",
-        "Minestrone",
-        "Vitello tonnato",
-        "Piadina",
-        "Calzone",
-        "Cannellonis",
-        "Polenta",
-        "Panzanella",
-        "Caprese",
-        "Raviolis"
+        "Pizza margherita", "Lasagnes", "Carbonara", "Risotto", "Gnocchis",
+        "Osso buco", "Tiramisu", "Focaccia", "Bruschetta", "Arancini",
+        "Saltimbocca", "Minestrone", "Vitello tonnato", "Piadina", "Calzone",
+        "Cannellonis", "Polenta", "Panzanella", "Caprese", "Raviolis"
       ]
     },
     {
       "nom": "Types de pates",
       "mots": [
-        "Spaghetti",
-        "Penne",
-        "Fusilli",
-        "Farfalle",
-        "Tagliatelle",
-        "Linguine",
-        "Rigatoni",
-        "Macaroni",
-        "Coquillettes",
-        "Lasagne",
-        "Orecchiette",
-        "Conchiglie",
-        "Bucatini",
-        "Vermicelli",
-        "Tortellini",
-        "Cheveux d'ange",
-        "Casarecce",
-        "Paccheri",
-        "Trofie",
-        "Radiatori"
+        "Spaghetti", "Penne", "Fusilli", "Farfalle", "Tagliatelle", "Linguine",
+        "Rigatoni", "Macaroni", "Coquillettes", "Lasagne", "Orecchiette",
+        "Conchiglie", "Bucatini", "Vermicelli", "Tortellini", "Cheveux d'ange",
+        "Casarecce", "Paccheri", "Trofie", "Radiatori"
       ]
     },
     {
       "nom": "Fromages francais",
       "mots": [
-        "Camembert",
-        "Brie",
-        "Roquefort",
-        "Comte",
-        "Reblochon",
-        "Beaufort",
-        "Munster",
-        "Cantal",
-        "Saint-Nectaire",
-        "Morbier",
-        "Tomme de Savoie",
-        "Bleu d'Auvergne",
-        "Epoisses",
-        "Maroilles",
-        "Emmental",
-        "Raclette",
-        "Mimolette",
-        "Crottin de Chavignol",
-        "Vacherin",
-        "Ossau-Iraty"
+        "Camembert", "Brie", "Roquefort", "Comte", "Reblochon", "Beaufort",
+        "Munster", "Cantal", "Saint-Nectaire", "Morbier", "Tomme de Savoie",
+        "Bleu d'Auvergne", "Epoisses", "Maroilles", "Emmental", "Raclette",
+        "Mimolette", "Crottin de Chavignol", "Vacherin", "Ossau-Iraty"
       ]
     },
     {
       "nom": "Boissons chaudes",
       "mots": [
-        "Cafe",
-        "The vert",
-        "Chocolat chaud",
-        "Cappuccino",
-        "Expresso",
-        "Latte",
-        "The noir",
-        "Infusion",
-        "Tisane",
-        "Moka",
-        "Macchiato",
-        "Ristretto",
-        "Noisette",
-        "Cafe allonge",
-        "Matcha",
-        "Chai latte",
-        "Rooibos",
-        "Vin chaud",
-        "Grog",
-        "Cafe viennois"
+        "Cafe", "The vert", "Chocolat chaud", "Cappuccino", "Expresso", "Latte",
+        "The noir", "Infusion", "Tisane", "Moka", "Macchiato", "Ristretto",
+        "Noisette", "Cafe allonge", "Matcha", "Chai latte", "Rooibos",
+        "Vin chaud", "Grog", "Cafe viennois"
       ]
     },
     {
       "nom": "Sodas et boissons sucrees",
       "mots": [
-        "Coca-Cola",
-        "Pepsi",
-        "Fanta",
-        "Sprite",
-        "Orangina",
-        "Schweppes",
-        "Ice Tea",
-        "Oasis",
-        "Red Bull",
-        "Monster",
-        "Canada Dry",
-        "Dr Pepper",
-        "Mountain Dew",
-        "Limonade",
-        "Cream Soda",
-        "Ginger Ale",
-        "Tropico",
-        "Powerade",
-        "Capri-Sun",
-        "Cherry Coke"
+        "Coca-Cola", "Pepsi", "Fanta", "Sprite", "Orangina", "Schweppes",
+        "Ice Tea", "Oasis", "Red Bull", "Monster", "Canada Dry", "Dr Pepper",
+        "Mountain Dew", "Limonade", "Cream Soda", "Ginger Ale", "Tropico",
+        "Powerade", "Capri-Sun", "Cherry Coke"
       ]
     },
     {
       "nom": "Cocktails",
       "mots": [
-        "Mojito",
-        "Margarita",
-        "Pina colada",
-        "Daiquiri",
-        "Cuba libre",
-        "Bloody Mary",
-        "Cosmopolitan",
-        "Spritz",
-        "Negroni",
-        "Sex on the beach",
-        "Tequila sunrise",
-        "Caipirinha",
-        "Mai tai",
-        "Whisky sour",
-        "Gin tonic",
-        "Sangria",
-        "Manhattan",
-        "Blue lagoon",
-        "Long Island",
-        "Espresso martini"
+        "Mojito", "Margarita", "Pina colada", "Daiquiri", "Cuba libre",
+        "Bloody Mary", "Cosmopolitan", "Spritz", "Negroni", "Sex on the beach",
+        "Tequila sunrise", "Caipirinha", "Mai tai", "Whisky sour", "Gin tonic",
+        "Sangria", "Manhattan", "Blue lagoon", "Long Island", "Espresso martini"
       ]
     },
     {
       "nom": "Animaux de la savane",
       "mots": [
-        "Lion",
-        "Girafe",
-        "Elephant",
-        "Zebre",
-        "Guepard",
-        "Hyene",
-        "Rhinoceros",
-        "Buffle",
-        "Gnou",
-        "Antilope",
-        "Leopard",
-        "Autruche",
-        "Babouin",
-        "Phacochere",
-        "Suricate",
-        "Chacal",
-        "Impala",
-        "Oryx",
-        "Marabout",
-        "Mangouste"
+        "Lion", "Girafe", "Elephant", "Zebre", "Guepard", "Hyene",
+        "Rhinoceros", "Buffle", "Gnou", "Antilope", "Leopard", "Autruche",
+        "Babouin", "Phacochere", "Suricate", "Chacal", "Impala", "Oryx",
+        "Marabout", "Mangouste"
       ]
     },
     {
       "nom": "Animaux marins",
       "mots": [
-        "Dauphin",
-        "Baleine",
-        "Requin",
-        "Orque",
-        "Pieuvre",
-        "Meduse",
-        "Tortue de mer",
-        "Hippocampe",
-        "Raie manta",
-        "Espadon",
-        "Homard",
-        "Crabe",
-        "Phoque",
-        "Otarie",
-        "Morse",
-        "Narval",
-        "Cachalot",
-        "Murene",
-        "Etoile de mer",
-        "Poisson-clown"
+        "Dauphin", "Baleine", "Requin", "Orque", "Pieuvre", "Meduse",
+        "Tortue de mer", "Hippocampe", "Raie manta", "Espadon", "Homard",
+        "Crabe", "Phoque", "Otarie", "Morse", "Narval", "Cachalot",
+        "Murene", "Etoile de mer", "Poisson-clown"
       ]
     },
     {
       "nom": "Races de chiens",
       "mots": [
-        "Labrador",
-        "Berger allemand",
-        "Golden retriever",
-        "Bouledogue francais",
-        "Chihuahua",
-        "Husky",
-        "Beagle",
-        "Rottweiler",
-        "Caniche",
-        "Border collie",
-        "Teckel",
-        "Boxer",
-        "Dalmatien",
-        "Shiba inu",
-        "Cocker",
-        "Yorkshire",
-        "Malinois",
-        "Saint-Bernard",
-        "Basset hound",
-        "Doberman"
+        "Labrador", "Berger allemand", "Golden retriever", "Bouledogue francais",
+        "Chihuahua", "Husky", "Beagle", "Rottweiler", "Caniche", "Border collie",
+        "Teckel", "Boxer", "Dalmatien", "Shiba inu", "Cocker", "Yorkshire",
+        "Malinois", "Saint-Bernard", "Basset hound", "Doberman"
       ]
     },
     {
       "nom": "Sports de ballon",
       "mots": [
-        "Football",
-        "Basketball",
-        "Rugby",
-        "Volleyball",
-        "Handball",
-        "Water-polo",
-        "Football americain",
-        "Futsal",
-        "Beach-volley",
-        "Baseball",
-        "Cricket",
-        "Hockey sur gazon",
-        "Dodgeball",
-        "Netball",
-        "Rugby a sept",
-        "Kin-ball",
-        "Tchoukball",
-        "Balle au prisonnier",
-        "Pelote basque",
-        "Hurling"
+        "Football", "Basketball", "Rugby", "Volleyball", "Handball",
+        "Water-polo", "Football americain", "Futsal", "Beach-volley",
+        "Baseball", "Cricket", "Hockey sur gazon", "Dodgeball", "Netball",
+        "Rugby a sept", "Kin-ball", "Tchoukball", "Balle au prisonnier",
+        "Pelote basque", "Hurling"
       ]
     },
     {
       "nom": "Sports de combat",
       "mots": [
-        "Boxe",
-        "Judo",
-        "Karate",
-        "MMA",
-        "Lutte",
-        "Taekwondo",
-        "Muay-thai",
-        "Kickboxing",
-        "Jiu-jitsu bresilien",
-        "Aikido",
-        "Sumo",
-        "Escrime",
-        "Krav-maga",
-        "Capoeira",
-        "Kung-fu",
-        "Savate",
-        "Sambo",
-        "Catch",
-        "Kendo",
-        "Wing chun"
+        "Boxe", "Judo", "Karate", "MMA", "Lutte", "Taekwondo", "Muay-thai",
+        "Kickboxing", "Jiu-jitsu bresilien", "Aikido", "Sumo", "Escrime",
+        "Krav-maga", "Capoeira", "Kung-fu", "Savate", "Sambo", "Catch",
+        "Kendo", "Wing chun"
       ]
     },
     {
       "nom": "Sports d'hiver",
       "mots": [
-        "Ski alpin",
-        "Snowboard",
-        "Patinage artistique",
-        "Hockey sur glace",
-        "Luge",
-        "Bobsleigh",
-        "Biathlon",
-        "Ski de fond",
-        "Curling",
-        "Saut a ski",
-        "Skeleton",
-        "Patinage de vitesse",
-        "Combine nordique",
-        "Ski freestyle",
-        "Telemark",
-        "Motoneige",
-        "Raquettes",
-        "Ski de randonnee",
-        "Speed riding",
-        "Ice cross"
+        "Ski alpin", "Snowboard", "Patinage artistique", "Hockey sur glace",
+        "Luge", "Bobsleigh", "Biathlon", "Ski de fond", "Curling", "Saut a ski",
+        "Skeleton", "Patinage de vitesse", "Combine nordique", "Ski freestyle",
+        "Telemark", "Motoneige", "Raquettes", "Ski de randonnee", "Speed riding", "Ice cross"
       ]
     },
     {
       "nom": "Consoles de jeu",
       "mots": [
-        "PlayStation 5",
-        "Xbox Series X",
-        "Nintendo Switch",
-        "Game Boy",
-        "Nintendo 64",
-        "PlayStation 2",
-        "Wii",
-        "GameCube",
-        "Dreamcast",
-        "Mega Drive",
-        "Super Nintendo",
-        "Xbox 360",
-        "PSP",
-        "Nintendo DS",
-        "Atari 2600",
-        "Neo Geo",
-        "Steam Deck",
-        "PS Vita",
-        "Wii U",
-        "Master System"
+        "PlayStation 5", "Xbox Series X", "Nintendo Switch", "Game Boy",
+        "Nintendo 64", "PlayStation 2", "Wii", "GameCube", "Dreamcast",
+        "Mega Drive", "Super Nintendo", "Xbox 360", "PSP", "Nintendo DS",
+        "Atari 2600", "Neo Geo", "Steam Deck", "PS Vita", "Wii U", "Master System"
       ]
     },
     {
       "nom": "Personnages de Mario",
       "mots": [
-        "Mario",
-        "Luigi",
-        "Peach",
-        "Bowser",
-        "Yoshi",
-        "Toad",
-        "Wario",
-        "Waluigi",
-        "Daisy",
-        "Donkey Kong",
-        "Koopa Troopa",
-        "Goomba",
-        "Boo",
-        "Rosalina",
-        "Bowser Jr.",
-        "Diddy Kong",
-        "Maskass",
-        "Birdo",
-        "Kamek",
-        "Lakitu"
+        "Mario", "Luigi", "Peach", "Bowser", "Yoshi", "Toad", "Wario",
+        "Waluigi", "Daisy", "Donkey Kong", "Koopa Troopa", "Goomba", "Boo",
+        "Rosalina", "Bowser Jr.", "Diddy Kong", "Maskass", "Birdo", "Kamek", "Lakitu"
       ]
     },
     {
       "nom": "Jeux de tir en ligne",
       "mots": [
-        "Call of Duty",
-        "Counter-Strike",
-        "Valorant",
-        "Fortnite",
-        "Apex Legends",
-        "Overwatch",
-        "Rainbow Six Siege",
-        "Battlefield",
-        "PUBG",
-        "Destiny",
-        "Titanfall",
-        "Halo",
-        "Team Fortress 2",
-        "Splitgate",
-        "Warzone",
-        "Escape from Tarkov",
-        "Hunt Showdown",
-        "The Finals",
-        "Paladins",
-        "Quake"
+        "Call of Duty", "Counter-Strike", "Valorant", "Fortnite", "Apex Legends",
+        "Overwatch", "Rainbow Six Siege", "Battlefield", "PUBG", "Destiny",
+        "Titanfall", "Halo", "Team Fortress 2", "Splitgate", "Warzone",
+        "Escape from Tarkov", "Hunt Showdown", "The Finals", "Paladins", "Quake"
       ]
     },
     {
       "nom": "Instruments a cordes",
       "mots": [
-        "Guitare",
-        "Violon",
-        "Violoncelle",
-        "Contrebasse",
-        "Harpe",
-        "Alto",
-        "Banjo",
-        "Mandoline",
-        "Ukulele",
-        "Luth",
-        "Sitar",
-        "Balalaika",
-        "Cithare",
-        "Lyre",
-        "Guitare basse",
-        "Guitare electrique",
-        "Oud",
-        "Charango",
-        "Theorbe",
-        "Vielle a roue"
+        "Guitare", "Violon", "Violoncelle", "Contrebasse", "Harpe", "Alto",
+        "Banjo", "Mandoline", "Ukulele", "Luth", "Sitar", "Balalaika",
+        "Cithare", "Lyre", "Guitare basse", "Guitare electrique", "Oud",
+        "Charango", "Theorbe", "Vielle a roue"
       ]
     },
     {
       "nom": "Genres de musique electronique",
       "mots": [
-        "Techno",
-        "House",
-        "Trance",
-        "Drum and bass",
-        "Dubstep",
-        "Ambient",
-        "Hardstyle",
-        "Electro swing",
-        "Deep house",
-        "Acid house",
-        "UK garage",
-        "Jungle",
-        "Trap",
-        "Synthwave",
-        "Big room",
-        "Minimal",
-        "Psytrance",
-        "Breakbeat",
-        "Future bass",
-        "Tech house"
+        "Techno", "House", "Trance", "Drum and bass", "Dubstep", "Ambient",
+        "Hardstyle", "Electro swing", "Deep house", "Acid house", "UK garage",
+        "Jungle", "Trap", "Synthwave", "Big room", "Minimal", "Psytrance",
+        "Breakbeat", "Future bass", "Tech house"
       ]
     },
     {
       "nom": "Capitales europeennes",
       "mots": [
-        "Paris",
-        "Berlin",
-        "Madrid",
-        "Rome",
-        "Lisbonne",
-        "Londres",
-        "Vienne",
-        "Amsterdam",
-        "Bruxelles",
-        "Dublin",
-        "Athenes",
-        "Varsovie",
-        "Prague",
-        "Budapest",
-        "Copenhague",
-        "Stockholm",
-        "Oslo",
-        "Helsinki",
-        "Bucarest",
-        "Zagreb"
+        "Paris", "Berlin", "Madrid", "Rome", "Lisbonne", "Londres", "Vienne",
+        "Amsterdam", "Bruxelles", "Dublin", "Athenes", "Varsovie", "Prague",
+        "Budapest", "Copenhague", "Stockholm", "Oslo", "Helsinki", "Bucarest", "Zagreb"
       ]
     },
     {
       "nom": "Metiers de l'hopital",
       "mots": [
-        "Chirurgien",
-        "Infirmier",
-        "Anesthesiste",
-        "Radiologue",
-        "Pediatre",
-        "Sage-femme",
-        "Kinesitherapeute",
-        "Aide-soignant",
-        "Urgentiste",
-        "Pharmacien",
-        "Cardiologue",
-        "Dermatologue",
-        "Psychiatre",
-        "Brancardier",
-        "Ambulancier",
-        "Laborantin",
-        "Dentiste",
-        "Orthopediste",
-        "Interne",
-        "Manipulateur radio"
+        "Chirurgien", "Infirmier", "Anesthesiste", "Radiologue", "Pediatre",
+        "Sage-femme", "Kinesitherapeute", "Aide-soignant", "Urgentiste",
+        "Pharmacien", "Cardiologue", "Dermatologue", "Psychiatre", "Brancardier",
+        "Ambulancier", "Laborantin", "Dentiste", "Orthopediste", "Interne", "Manipulateur radio"
       ]
     },
     {
       "nom": "Outils de bricolage",
       "mots": [
-        "Marteau",
-        "Tournevis",
-        "Perceuse",
-        "Scie",
-        "Pince",
-        "Cle a molette",
-        "Niveau a bulle",
-        "Metre ruban",
-        "Ponceuse",
-        "Visseuse",
-        "Burin",
-        "Rabot",
-        "Cutter",
-        "Agrafeuse",
-        "Meuleuse",
-        "Serre-joint",
-        "Tenaille",
-        "Equerre",
-        "Fil a plomb",
-        "Chignole"
+        "Marteau", "Tournevis", "Perceuse", "Scie", "Pince", "Cle a molette",
+        "Niveau a bulle", "Metre ruban", "Ponceuse", "Visseuse", "Burin",
+        "Rabot", "Cutter", "Agrafeuse", "Meuleuse", "Serre-joint", "Tenaille",
+        "Equerre", "Fil a plomb", "Chignole"
       ]
     },
     {
       "nom": "Ustensiles de cuisine",
       "mots": [
-        "Louche",
-        "Spatule",
-        "Fouet",
-        "Passoire",
-        "Econome",
-        "Rape",
-        "Rouleau a patisserie",
-        "Ecumoire",
-        "Presse-ail",
-        "Mixeur",
-        "Casserole",
-        "Poele",
-        "Cocotte",
-        "Planche a decouper",
-        "Maryse",
-        "Mandoline",
-        "Chinois",
-        "Sauteuse",
-        "Moule a gateau",
-        "Thermometre de cuisson"
+        "Louche", "Spatule", "Fouet", "Passoire", "Econome", "Rape",
+        "Rouleau a patisserie", "Ecumoire", "Presse-ail", "Mixeur",
+        "Casserole", "Poele", "Cocotte", "Planche a decouper", "Maryse",
+        "Mandoline", "Chinois", "Sauteuse", "Moule a gateau", "Thermometre de cuisson"
       ]
     },
     {
       "nom": "Electromenager",
       "mots": [
-        "Refrigerateur",
-        "Lave-linge",
-        "Lave-vaisselle",
-        "Four",
-        "Micro-ondes",
-        "Aspirateur",
-        "Grille-pain",
-        "Bouilloire",
-        "Robot patissier",
-        "Friteuse",
-        "Congelateur",
-        "Seche-linge",
-        "Cafetiere",
-        "Blender",
-        "Hotte aspirante",
-        "Plaque a induction",
-        "Centrifugeuse",
-        "Cuiseur vapeur",
-        "Machine a pain",
+        "Refrigerateur", "Lave-linge", "Lave-vaisselle", "Four", "Micro-ondes",
+        "Aspirateur", "Grille-pain", "Bouilloire", "Robot patissier", "Friteuse",
+        "Congelateur", "Seche-linge", "Cafetiere", "Blender", "Hotte aspirante",
+        "Plaque a induction", "Centrifugeuse", "Cuiseur vapeur", "Machine a pain",
         "Fer a repasser"
       ]
     },
     {
       "nom": "Reseaux sociaux",
       "mots": [
-        "Instagram",
-        "TikTok",
-        "Snapchat",
-        "X",
-        "Facebook",
-        "LinkedIn",
-        "Reddit",
-        "Discord",
-        "YouTube",
-        "Twitch",
-        "Pinterest",
-        "WhatsApp",
-        "Telegram",
-        "BeReal",
-        "Threads",
-        "Tumblr",
-        "Mastodon",
-        "Bluesky",
-        "Vine",
-        "MySpace"
+        "Instagram", "TikTok", "Snapchat", "X", "Facebook", "LinkedIn", "Reddit",
+        "Discord", "YouTube", "Twitch", "Pinterest", "WhatsApp", "Telegram",
+        "BeReal", "Threads", "Tumblr", "Mastodon", "Bluesky", "Vine", "MySpace"
       ]
     },
     {
       "nom": "Marques de voiture",
       "mots": [
-        "Renault",
-        "Peugeot",
-        "Citroen",
-        "Volkswagen",
-        "BMW",
-        "Mercedes",
-        "Audi",
-        "Toyota",
-        "Honda",
-        "Ford",
-        "Fiat",
-        "Tesla",
-        "Porsche",
-        "Ferrari",
-        "Lamborghini",
-        "Nissan",
-        "Hyundai",
-        "Kia",
-        "Volvo",
-        "Dacia"
+        "Renault", "Peugeot", "Citroen", "Volkswagen", "BMW", "Mercedes", "Audi",
+        "Toyota", "Honda", "Ford", "Fiat", "Tesla", "Porsche", "Ferrari",
+        "Lamborghini", "Nissan", "Hyundai", "Kia", "Volvo", "Dacia"
       ]
     },
     {
       "nom": "Viennoiseries et pains",
       "mots": [
-        "Croissant",
-        "Pain au chocolat",
-        "Baguette",
-        "Brioche",
-        "Chausson aux pommes",
-        "Pain aux raisins",
-        "Chouquette",
-        "Pain de campagne",
-        "Ficelle",
-        "Fougasse",
-        "Pain complet",
-        "Pain de mie",
-        "Pain viennois",
-        "Kouglof",
-        "Bretzel",
-        "Beignet",
-        "Palmier",
-        "Sacristain",
-        "Pain aux cereales",
-        "Tresse briochee"
+        "Croissant", "Pain au chocolat", "Baguette", "Brioche",
+        "Chausson aux pommes", "Pain aux raisins", "Chouquette",
+        "Pain de campagne", "Ficelle", "Fougasse", "Pain complet",
+        "Pain de mie", "Pain viennois", "Kouglof", "Bretzel", "Beignet",
+        "Palmier", "Sacristain", "Pain aux cereales", "Tresse briochee"
       ]
     },
     {
       "nom": "Patisseries francaises",
       "mots": [
-        "Eclair au chocolat",
-        "Mille-feuille",
-        "Paris-Brest",
-        "Tarte Tatin",
-        "Creme brulee",
-        "Profiterole",
-        "Macaron",
-        "Baba au rhum",
-        "Saint-Honore",
-        "Opera",
-        "Religieuse",
-        "Flan patissier",
-        "Fraisier",
-        "Charlotte",
-        "Clafoutis",
-        "Far breton",
-        "Canele",
-        "Madeleine",
-        "Financier",
-        "Tarte au citron meringuee"
+        "Eclair au chocolat", "Mille-feuille", "Paris-Brest", "Tarte Tatin",
+        "Creme brulee", "Profiterole", "Macaron", "Baba au rhum",
+        "Saint-Honore", "Opera", "Religieuse", "Flan patissier", "Fraisier",
+        "Charlotte", "Clafoutis", "Far breton", "Canele", "Madeleine",
+        "Financier", "Tarte au citron meringuee"
       ]
     },
     {
       "nom": "Phenomenes meteo",
       "mots": [
-        "Orage",
-        "Tornade",
-        "Ouragan",
-        "Grele",
-        "Brouillard",
-        "Canicule",
-        "Averse",
-        "Blizzard",
-        "Tempete de sable",
-        "Verglas",
-        "Arc-en-ciel",
-        "Aurore boreale",
-        "Mousson",
-        "Bruine",
-        "Typhon",
-        "Secheresse",
-        "Gelee blanche",
-        "Trombe marine",
-        "Eclair",
-        "Rafale"
+        "Orage", "Tornade", "Ouragan", "Grele", "Brouillard", "Canicule",
+        "Averse", "Blizzard", "Tempete de sable", "Verglas", "Arc-en-ciel",
+        "Aurore boreale", "Mousson", "Bruine", "Typhon", "Secheresse",
+        "Gelee blanche", "Trombe marine", "Eclair", "Rafale"
       ]
     },
     {
       "nom": "Corps celestes",
       "mots": [
-        "Mercure",
-        "Venus",
-        "Terre",
-        "Mars",
-        "Jupiter",
-        "Saturne",
-        "Uranus",
-        "Neptune",
-        "Pluton",
-        "Lune",
-        "Soleil",
-        "Comete",
-        "Asteroide",
-        "Meteorite",
-        "Trou noir",
-        "Nebuleuse",
-        "Voie lactee",
-        "Etoile filante",
-        "Naine blanche",
-        "Ceinture de Kuiper"
+        "Mercure", "Venus", "Terre", "Mars", "Jupiter", "Saturne", "Uranus",
+        "Neptune", "Pluton", "Lune", "Soleil", "Comete", "Asteroide",
+        "Meteorite", "Trou noir", "Nebuleuse", "Voie lactee", "Etoile filante",
+        "Naine blanche", "Ceinture de Kuiper"
       ]
     },
     {
       "nom": "Epices et condiments",
       "mots": [
-        "Poivre",
-        "Paprika",
-        "Curcuma",
-        "Cumin",
-        "Cannelle",
-        "Muscade",
-        "Gingembre",
-        "Piment",
-        "Safran",
-        "Curry",
-        "Coriandre",
-        "Origan",
-        "Thym",
-        "Laurier",
-        "Clou de girofle",
-        "Cardamome",
-        "Vanille",
-        "Anis etoile",
-        "Sumac",
-        "Ras el-hanout"
+        "Poivre", "Paprika", "Curcuma", "Cumin", "Cannelle", "Muscade",
+        "Gingembre", "Piment", "Safran", "Curry", "Coriandre", "Origan",
+        "Thym", "Laurier", "Clou de girofle", "Cardamome", "Vanille",
+        "Anis etoile", "Sumac", "Ras el-hanout"
       ]
     },
     {
       "nom": "Sauces",
       "mots": [
-        "Mayonnaise",
-        "Ketchup",
-        "Moutarde",
-        "Sauce barbecue",
-        "Sauce blanche",
-        "Aioli",
-        "Bearnaise",
-        "Hollandaise",
-        "Bechamel",
-        "Pesto",
-        "Sauce soja",
-        "Sriracha",
-        "Tabasco",
-        "Harissa",
-        "Tzatziki",
-        "Guacamole",
-        "Houmous",
-        "Sauce tartare",
-        "Chimichurri",
-        "Sauce samourai"
+        "Mayonnaise", "Ketchup", "Moutarde", "Sauce barbecue", "Sauce blanche",
+        "Aioli", "Bearnaise", "Hollandaise", "Bechamel", "Pesto", "Sauce soja",
+        "Sriracha", "Tabasco", "Harissa", "Tzatziki", "Guacamole", "Houmous",
+        "Sauce tartare", "Chimichurri", "Sauce samourai"
       ]
     },
     {
       "nom": "Vetements du haut",
       "mots": [
-        "T-shirt",
-        "Chemise",
-        "Pull",
-        "Sweat a capuche",
-        "Veste",
-        "Blouson",
-        "Polo",
-        "Debardeur",
-        "Gilet",
-        "Cardigan",
-        "Blazer",
-        "Doudoune",
-        "Trench",
-        "Bomber",
-        "Perfecto",
-        "Chemisier",
-        "Tunique",
-        "Poncho",
-        "Coupe-vent",
-        "Marcel"
+        "T-shirt", "Chemise", "Pull", "Sweat a capuche", "Veste", "Blouson",
+        "Polo", "Debardeur", "Gilet", "Cardigan", "Blazer", "Doudoune",
+        "Trench", "Bomber", "Perfecto", "Chemisier", "Tunique", "Poncho",
+        "Coupe-vent", "Marcel"
       ]
     },
     {
       "nom": "Chaussures",
       "mots": [
-        "Baskets",
-        "Bottes",
-        "Mocassins",
-        "Escarpins",
-        "Sandales",
-        "Tongs",
-        "Ballerines",
-        "Derbies",
-        "Richelieus",
-        "Bottines",
-        "Chaussons",
-        "Claquettes",
-        "Espadrilles",
-        "Sabots",
-        "Cuissardes",
-        "Chaussures de securite",
-        "Crampons",
-        "Chaussons d'escalade",
-        "Palmes",
-        "Rangers"
+        "Baskets", "Bottes", "Mocassins", "Escarpins", "Sandales", "Tongs",
+        "Ballerines", "Derbies", "Richelieus", "Bottines", "Chaussons",
+        "Claquettes", "Espadrilles", "Sabots", "Cuissardes",
+        "Chaussures de securite", "Crampons", "Chaussons d'escalade",
+        "Palmes", "Rangers"
       ]
     },
     {
       "nom": "Jeux de societe",
       "mots": [
-        "Monopoly",
-        "Cluedo",
-        "Risk",
-        "Scrabble",
-        "Uno",
-        "Loup-garou",
-        "Trivial Pursuit",
-        "Puissance 4",
-        "Jungle Speed",
-        "Catane",
-        "7 Wonders",
-        "Time's Up",
-        "Dixit",
-        "Blanc-Manger Coco",
-        "Echecs",
-        "Dames",
-        "Awale",
-        "Mille Bornes",
-        "Kem's",
-        "Skyjo"
+        "Monopoly", "Cluedo", "Risk", "Scrabble", "Uno", "Loup-garou",
+        "Trivial Pursuit", "Puissance 4", "Jungle Speed", "Catane",
+        "7 Wonders", "Time's Up", "Dixit", "Blanc-Manger Coco", "Echecs",
+        "Dames", "Awale", "Mille Bornes", "Kem's", "Skyjo"
       ]
     },
     {
       "nom": "Pieces de la maison",
       "mots": [
-        "Cuisine",
-        "Salon",
-        "Chambre",
-        "Salle de bain",
-        "Toilettes",
-        "Entree",
-        "Couloir",
-        "Garage",
-        "Cave",
-        "Grenier",
-        "Buanderie",
-        "Bureau",
-        "Veranda",
-        "Cellier",
-        "Dressing",
-        "Sous-sol",
-        "Terrasse",
-        "Balcon",
-        "Mezzanine",
-        "Salle a manger"
+        "Cuisine", "Salon", "Chambre", "Salle de bain", "Toilettes", "Entree",
+        "Couloir", "Garage", "Cave", "Grenier", "Buanderie", "Bureau",
+        "Veranda", "Cellier", "Dressing", "Sous-sol", "Terrasse", "Balcon",
+        "Mezzanine", "Salle a manger"
+      ]
+    },
+    {
+      "nom": "Protagonistes Shonen",
+      "mots": [
+        "Goku (Dragon Ball)",
+        "Naruto (Naruto)",
+        "Luffy (One Piece)",
+        "Ichigo (Bleach)",
+        "Gon (Hunter x Hunter)",
+        "Midoriya (My Hero Academia)",
+        "Itadori (Jujutsu Kaisen)",
+        "Tanjiro (Demon Slayer)",
+        "Denji (Chainsaw Man)",
+        "Edward Elric (Fullmetal Alchemist)",
+        "Yusuke Urameshi (Yu Yu Hakusho)",
+        "Seiya (Saint Seiya)"
+      ]
+    },
+    {
+      "nom": "Rivaux Shonen",
+      "mots": [
+        "Vegeta (Dragon Ball)",
+        "Sasuke (Naruto)",
+        "Zoro (One Piece)",
+        "Bakugo (My Hero Academia)",
+        "Killua (Hunter x Hunter)",
+        "Megumi (Jujutsu Kaisen)",
+        "Aki (Chainsaw Man)",
+        "Roy Mustang (Fullmetal Alchemist)",
+        "Hiei (Yu Yu Hakusho)",
+        "Renji (Bleach)"
+      ]
+    },
+    {
+      "nom": "Mentors d'Anime",
+      "mots": [
+        "Jiraya (Naruto)",
+        "Tortue Geniale (Dragon Ball)",
+        "Rayleigh (One Piece)",
+        "Gojo Satoru (Jujutsu Kaisen)",
+        "Kisuke Urahara (Bleach)",
+        "Kakashi (Naruto)",
+        "Silver Fang (One Punch Man)",
+        "Biscuit Krueger (Hunter x Hunter)",
+        "All Might (My Hero Academia)"
+      ]
+    },
+    {
+      "nom": "Saiyans purs et hybrides",
+      "mots": [
+        "Goku (Dragon Ball)",
+        "Vegeta (Dragon Ball)",
+        "Gohan (Dragon Ball)",
+        "Trunks (Dragon Ball)",
+        "Broly (Dragon Ball)",
+        "Bardock (Dragon Ball)",
+        "Goten (Dragon Ball)",
+        "Raditz (Dragon Ball)",
+        "Nappa (Dragon Ball)",
+        "Cabba (Dragon Ball Super)",
+        "Kale (Dragon Ball Super)",
+        "Caulifla (Dragon Ball Super)"
+      ]
+    },
+    {
+      "nom": "Transformations cultes",
+      "mots": [
+        "Super Saiyan (Dragon Ball)",
+        "Gear 5 (One Piece)",
+        "Mode Baryon (Naruto)",
+        "Bankai (Bleach)",
+        "Eveil (One Piece / Jujutsu Kaisen)",
+        "Ultra Instinct (Dragon Ball)",
+        "Gear 4 (One Piece)",
+        "Mode Ermite (Naruto)",
+        "Vasto Lorde (Bleach)"
+      ]
+    },
+    {
+      "nom": "Stands Jojo (Part 3 & 4)",
+      "mots": [
+        "Star Platinum (Jojo's Bizarre Adventure)",
+        "The World (Jojo's Bizarre Adventure)",
+        "Crazy Diamond (Jojo's Bizarre Adventure)",
+        "Killer Queen (Jojo's Bizarre Adventure)",
+        "Hierophant Green (Jojo's Bizarre Adventure)",
+        "Silver Chariot (Jojo's Bizarre Adventure)",
+        "Magician's Red (Jojo's Bizarre Adventure)",
+        "The Hand (Jojo's Bizarre Adventure)",
+        "Echoes (Jojo's Bizarre Adventure)",
+        "Heaven's Door (Jojo's Bizarre Adventure)"
+      ]
+    },
+    {
+      "nom": "Antagonistes emblématiques",
+      "mots": [
+        "Freezer (Dragon Ball)",
+        "Madara (Naruto)",
+        "Aizen (Bleach)",
+        "Doflamingo (One Piece)",
+        "Meruem (Hunter x Hunter)",
+        "Sukuna (Jujutsu Kaisen)",
+        "Dio Brando (Jojo's Bizarre Adventure)",
+        "Muzan (Demon Slayer)",
+        "Shigaraki (My Hero Academia)",
+        "Pain (Naruto)",
+        "Cell (Dragon Ball)",
+        "Orochimaru (Naruto)"
+      ]
+    },
+    {
+      "nom": "Famille Uchiwa",
+      "mots": [
+        "Sasuke (Naruto)",
+        "Itachi (Naruto)",
+        "Madara (Naruto)",
+        "Obito (Naruto)",
+        "Shisui (Naruto)",
+        "Fugaku (Naruto)"
+      ]
+    },
+    {
+      "nom": "Attaques d'énergie cultes",
+      "mots": [
+        "Kamehameha (Dragon Ball)",
+        "Rasengan (Naruto)",
+        "Getsuga Tensho (Bleach)",
+        "Final Flash (Dragon Ball)",
+        "Cero (Bleach)",
+        "Makankosappo (Dragon Ball)",
+        "Gallic Gun (Dragon Ball)",
+        "Hollow Purple (Jujutsu Kaisen)",
+        "Orbe tourbillonnant (Naruto)"
+      ]
+    },
+    {
+      "nom": "Sabreurs d'Anime",
+      "mots": [
+        "Zoro (One Piece)",
+        "Ichigo (Bleach)",
+        "Mihawk (One Piece)",
+        "Kenpachi (Bleach)",
+        "Erza (Fairy Tail)",
+        "Giyu Tomioka (Demon Slayer)",
+        "Atomic Samurai (One Punch Man)",
+        "Levi Ackerman (L'Attaque des Titans)",
+        "Trunks (Dragon Ball)",
+        "Killer Bee (Naruto)"
+      ]
+    },
+    {
+      "nom": "Champions LoL - Assassins Midlane",
+      "mots": [
+        "Yasuo", "Zed", "Talon", "Katarina", "Akali", "Fizz", "Qiyana", "Yone", "LeBlanc", "Kassadin"
+      ]
+    },
+    {
+      "nom": "Champions LoL - ADC classiques",
+      "mots": [
+        "Jinx", "Vayne", "Ezreal", "Lucian", "Kaisa", "Caitlyn", "Ashe", "Tristana", "Miss Fortune", "Draven"
+      ]
+    },
+    {
+      "nom": "Combattants Street Fighter",
+      "mots": [
+        "Ryu", "Ken", "Chun-Li", "Guile", "Akuma", "Bison", "Cammy", "Zangief", "Dhalsim", "Blanka", "Luke", "Juri"
+      ]
+    },
+    {
+      "nom": "Personnages de VS Fighting (Global)",
+      "mots": [
+        "Ryu", "Scorpion", "Sub-Zero", "Kazuya Mishima", "Terry Bogard", "Jin Kazama", "Chun-Li", "Heihachi", "Sol Badguy", "Morrigan"
+      ]
+    },
+    {
+      "nom": "Frameworks Front-end",
+      "mots": [
+        "Vue.js", "React", "Angular", "Svelte", "Ember.js", "Solid.js", "Preact"
+      ]
+    },
+    {
+      "nom": "Outils et Frameworks Back-end",
+      "mots": [
+        "Laravel", "Symfony", "Django", "Express.js", "Spring Boot", "Ruby on Rails", "NestJS", "ASP.NET"
+      ]
+    },
+    {
+      "nom": "Patisseries à base de pate a choux",
+      "mots": [
+        "Eclair au chocolat", "Religieuse", "Paris-Brest", "Chouquette", "Profiterole", "Saint-Honore", "Gland", "Salambo"
+      ]
+    },
+    {
+      "nom": "Grands classiques de la patisserie francaise",
+      "mots": [
+        "Eclair au chocolat", "Mille-feuille", "Paris-Brest", "Tarte Tatin", "Fraisier", "Opera", "Baba au rhum", "Tarte au citron meringuee"
+      ]
+    },
+    {
+      "nom": "Mouvements de Force Athletique",
+      "mots": [
+        "Developpe couche", "Souleve de terre", "Squat", "Developpe militaire"
+      ]
+    },
+    {
+      "nom": "Groupes musculaires (Haut du corps)",
+      "mots": [
+        "Pectoraux", "Dorsaux", "Deltoides", "Biceps", "Triceps", "Trapezes", "Abdominaux", "Avant-bras"
+      ]
+    },
+    {
+      "nom": "Les Roux (IRL et Anime)",
+      "mots": [
+        "Chairgamertag87",
+        "Zacharie Heuertz",
+        "Shanks (One Piece)",
+        "Karma Akabane (Assassination Classroom)",
+        "Erza Scarlet (Fairy Tail)",
+        "Gaara (Naruto)",
+        "Eijiro Kirishima (My Hero Academia)",
+        "Soma Yukihira (Food Wars)",
+        "Renji Abarai (Bleach)"
+      ]
+    },
+    {
+      "nom": "Protagonistes Masculins (Romance)",
+      "mots": [
+        "Wakana Gojo (My Dress up Darling)",
+        "Miyuki Shirogane (Kaguya-Sama)",
+        "Taiki Inomata (Blue Box)",
+        "Kousei Arima (Your Lie In April)",
+        "Sakuta Azusagawa (Bunny Girl Senpai)",
+        "Kazuya Kinoshita (Rent a Girlfriend)",
+        "Futaro Uesugi (5-toubun no Hanayome)"
+      ]
+    },
+    {
+      "nom": "Héroïnes et Love Interests (Romance)",
+      "mots": [
+        "Marin Kitagawa (My Dress up Darling)",
+        "Kaguya Shinomiya (Kaguya-Sama)",
+        "Chinatsu Kano (Blue Box)",
+        "Kaori Miyazono (Your Lie In April)",
+        "Mai Sakurajima (Bunny Girl Senpai)",
+        "Chizuru Mizuhara (Rent a Girlfriend)",
+        "Mami Nanami (Rent a Girlfriend)",
+        "Mao Mao (Les Carnets de l'Apothicaire)",
+        "Hina Chono (Blue Box)",
+        "Ruka Sarashina (Rent a Girlfriend)"
+      ]
+    },
+    {
+      "nom": "Les Soeurs Nakano",
+      "mots": [
+        "Ichika Nakano (5-toubun no Hanayome)",
+        "Nino Nakano (5-toubun no Hanayome)",
+        "Miku Nakano (5-toubun no Hanayome)",
+        "Yotsuba Nakano (5-toubun no Hanayome)",
+        "Itsuki Nakano (5-toubun no Hanayome)"
+      ]
+    },
+    {
+      "nom": "Artistes et Musiciens",
+      "mots": [
+        "Bocchi / Hitori Gotoh (Bocchi The Rock)",
+        "Ai Hoshino (Oshi No Ko)",
+        "Ruby Hoshino (Oshi No Ko)",
+        "Kaori Miyazono (Your Lie In April)",
+        "Kousei Arima (Your Lie In April)",
+        "Aqua Hoshino (Oshi No Ko)",
+        "Ado",
+        "Hatsune Miku"
+      ]
+    },
+    {
+      "nom": "Génies, Stratèges et Manipulateurs",
+      "mots": [
+        "Light Yagami (Death Note)",
+        "L (Death Note)",
+        "Sora (No Game No Life)",
+        "Shiro (No Game No Life)",
+        "Miyuki Shirogane (Kaguya-Sama)",
+        "Koro-sensei (Assassination Classroom)",
+        "Loid Forger (Spy x Family)"
+      ]
+    },
+    {
+      "nom": "Mascottes et Compagnons Animaux",
+      "mots": [
+        "Pochita (Chainsaw Man)",
+        "Bond Forger (Spy x Family)",
+        "Puck (Re:ZERO)",
+        "Totoro (Mon Voisin Totoro)",
+        "Happy (Fairy Tail)",
+        "Koro-sensei (Assassination Classroom)"
+      ]
+    },
+    {
+      "nom": "Mentors et Professeurs",
+      "mots": [
+        "Koro-sensei (Assassination Classroom)",
+        "Aizawa Shota (My Hero Academia)",
+        "Satoru Gojo (Jujutsu Kaisen)",
+        "Jiraya (Naruto)",
+        "Evangeline A.K. McDowell (UQ Holder / Negima)",
+        "Sakonji Urokodaki (Demon Slayer)",
+        "Kieffrey (L'Atelier des Sorciers)"
+      ]
+    },
+    {
+      "nom": "Tireurs d'élite et Snipers",
+      "mots": [
+        "Sinon (SAO / SAO Alternative GGO)",
+        "Llenn (SAO Alternative GGO)",
+        "Death Gun (SAO)",
+        "Usopp (One Piece)",
+        "Riza Hawkeye (Fullmetal Alchemist)",
+        "Mista (Jojo's Bizarre Adventure)"
+      ]
+    },
+    {
+      "nom": "Monstres, Goules et Démons",
+      "mots": [
+        "Ken Kaneki (Tokyo Ghoul)",
+        "Touka Kirishima (Tokyo Ghoul)",
+        "Nezuko Kamado (Demon Slayer)",
+        "Muzan Kibutsuji (Demon Slayer)",
+        "Denji (Chainsaw Man)",
+        "Power (Chainsaw Man)",
+        "Rem (Re:ZERO)",
+        "Ram (Re:ZERO)"
+      ]
+    },
+    {
+      "nom": "Magie et Fantasy",
+      "mots": [
+        "Frieren (Frieren)",
+        "Emilia (Re:ZERO)",
+        "Asuna (SAO)",
+        "Touta Konoe (UQ Holder)",
+        "Negi Springfield (Negima)",
+        "Subaru Natsuki (Re:ZERO)",
+        "Coco (L'Atelier des Sorciers)",
+        "Agathe (L'Atelier des Sorciers)",
+        "Trice (L'Atelier des Sorciers)"
+      ]
+    },
+    {
+      "nom": "Films de Makoto Shinkai et Ghibli",
+      "mots": [
+        "Mitsuha Miyamizu (Your Name)",
+        "Taki Tachibana (Your Name)",
+        "Suzume Iwato (Suzume no Tojimari)",
+        "Souta Munakata (Suzume no Tojimari)",
+        "Chihiro (Le Voyage de Chihiro)",
+        "Hauru (Le Château Ambulant)",
+        "San (Princesse Mononoké)"
+      ]
+    },
+    {
+      "nom": "L'Atelier des Sorciers",
+      "mots": [
+        "Coco (L'Atelier des Sorciers)",
+        "Agathe (L'Atelier des Sorciers)",
+        "Kieffrey (L'Atelier des Sorciers)",
+        "Trice (L'Atelier des Sorciers)",
+        "Tetia (L'Atelier des Sorciers)",
+        "Olruggio (L'Atelier des Sorciers)",
+        "Brimmed Caps / Confrérie du Capuchon (L'Atelier des Sorciers)",
+        "Pentagramme"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Bataille de Gojo",
+      "mots": [
+        "Satoru Gojo (Jujutsu Kaisen)",
+        "Wakana Gojo (My Dress up Darling)"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Légumes Saiyans",
+      "mots": [
+        "Broly (Dragon Ball)",
+        "Brocoli"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Kakarot",
+      "mots": [
+        "Kakarot (Dragon Ball)",
+        "Carotte"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Bocchi",
+      "mots": [
+        "Bocchi (Bocchi The Rock)",
+        "Gnocchi"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Freezer",
+      "mots": [
+        "Freezer (Dragon Ball)",
+        "Frigo"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - SAO",
+      "mots": [
+        "Kirito (SAO)",
+        "Burrito"
+      ]
+    },
+    {
+      "nom": "Jeu de mots - Ghibli",
+      "mots": [
+        "Totoro (Mon Voisin Totoro)",
+        "Taureau"
       ]
     }
   ]

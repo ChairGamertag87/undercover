@@ -586,7 +586,20 @@ function suspectLine(player, index) {
     if (room.tie_between && room.tie_between.includes(player.id)) return 'à égalité';
     return player.has_voted ? 'a voté' : 'hésite encore';
   }
+  if (room.phase === 'discussion' && !room.settings.typed_clues) {
+    const order = speakOrderOf(player.id);
+    if (order) return order === 1 ? 'parle en 1er' : `parle en ${order}e`;
+  }
   return `matricule ${pad2(index + 1)}`;
+}
+
+function speakOrderOf(player_id) {
+  const order = (room.round_order || []).filter((id) => {
+    const p = playerById(id);
+    return p && p.alive;
+  });
+  const index = order.indexOf(player_id);
+  return index === -1 ? null : index + 1;
 }
 
 function lastClueOf(player_id) {
@@ -779,7 +792,24 @@ function renderDiscussionPanel(mine) {
   dom.action_title.textContent = 'Débat';
   dom.action_meta.textContent = room.settings.discussion_seconds ? 'chrono lancé' : 'sans chrono';
   buildDossier();
-  addText('Tous les indices sont déposés. Accusez, défendez, cherchez la fausse note. Le vote suit.');
+  if (!room.settings.typed_clues) {
+    addText('Mode vocal : donnez vos indices à voix haute dans l\'ordre ci-dessous, puis débattez.');
+    const queue = document.createElement('div');
+    queue.className = 'turn-queue';
+    const order = (room.round_order || []).map((id) => playerById(id)).filter((p) => p && p.alive);
+    order.forEach((player, index) => {
+      const row = document.createElement('div');
+      row.className = 'queue-item';
+      row.dataset.current = index === 0 ? '1' : '0';
+      row.dataset.done = '0';
+      const mark = me && player.id === me.id ? ' (toi)' : '';
+      row.innerHTML = `<span>${pad2(index + 1)}</span><span>${escapeHtml(player.name)}${mark}</span><span class="queue-clue">${index === 0 ? 'commence' : ''}</span>`;
+      queue.appendChild(row);
+    });
+    dom.action_body.appendChild(queue);
+  } else {
+    addText('Tous les indices sont déposés. Accusez, défendez, cherchez la fausse note. Le vote suit.');
+  }
   if (isHost()) addButton('Ouvrir le vote', 'primary', () => sendMessage({ type: 'open_vote' }));
   else addText('L\'hôte ouvre le vote quand le débat est fini.');
   if (mine && !mine.alive) addText('Tu es éliminé : tu peux parler, mais tu ne votes plus.');

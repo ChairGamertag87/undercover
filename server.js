@@ -242,6 +242,7 @@ function roomState(room) {
     settings: room.settings,
     players: orderedPlayers(room).map((p) => publicPlayer(room, p)),
     turn_id: turn_player || null,
+    round_order: room.round_order,
     clue_history: room.clue_history,
     votes: room.phase === 'vote_result' || room.phase === 'ended' ? Array.from(room.votes.entries()) : [],
     vote_count: room.votes.size,

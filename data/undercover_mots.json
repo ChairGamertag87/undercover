@@ -3,6 +3,16 @@
   "description": "Mega-liste fusionnée. Thèmes variés allant du tryhard anime/dev/muscu aux classiques, avec des jeux de mots redoutables.",
   "themes": [
     {
+      "nom": "Actrices porno",
+      "mots": [
+        "Mia Khalifa",
+        "Sweety Fox",
+        "Cutie Kim",
+        "Eva Elfie",
+        "Kalamite"
+      ]
+    },
+    {
       "nom": "Shonen cultes",
       "mots": [
         "Naruto", "One Piece", "Bleach", "Dragon Ball", "Hunter x Hunter",
@@ -51,24 +61,6 @@
       ]
     },
     {
-      "nom": "Chaines de fast-food",
-      "mots": [
-        "McDonald's", "Burger King", "KFC", "Quick", "Subway", "Domino's Pizza",
-        "Pizza Hut", "Five Guys", "O'Tacos", "Wendy's", "Popeyes", "Chipotle",
-        "Taco Bell", "Starbucks", "Dunkin'", "Papa John's", "Shake Shack",
-        "Nando's", "In-N-Out", "Krispy Kreme"
-      ]
-    },
-    {
-      "nom": "Plats italiens",
-      "mots": [
-        "Pizza margherita", "Lasagnes", "Carbonara", "Risotto", "Gnocchis",
-        "Osso buco", "Tiramisu", "Focaccia", "Bruschetta", "Arancini",
-        "Saltimbocca", "Minestrone", "Vitello tonnato", "Piadina", "Calzone",
-        "Cannellonis", "Polenta", "Panzanella", "Caprese", "Raviolis"
-      ]
-    },
-    {
       "nom": "Types de pates",
       "mots": [
         "Spaghetti", "Penne", "Fusilli", "Farfalle", "Tagliatelle", "Linguine",
@@ -111,52 +103,6 @@
         "Bloody Mary", "Cosmopolitan", "Spritz", "Negroni", "Sex on the beach",
         "Tequila sunrise", "Caipirinha", "Mai tai", "Whisky sour", "Gin tonic",
         "Sangria", "Manhattan", "Blue lagoon", "Long Island", "Espresso martini"
-      ]
-    },
-    {
-      "nom": "Animaux de la savane",
-      "mots": [
-        "Lion", "Girafe", "Elephant", "Zebre", "Guepard", "Hyene",
-        "Rhinoceros", "Buffle", "Gnou", "Antilope", "Leopard", "Autruche",
-        "Babouin", "Phacochere", "Suricate", "Chacal", "Impala", "Oryx",
-        "Marabout", "Mangouste"
-      ]
-    },
-    {
-      "nom": "Animaux marins",
-      "mots": [
-        "Dauphin", "Baleine", "Requin", "Orque", "Pieuvre", "Meduse",
-        "Tortue de mer", "Hippocampe", "Raie manta", "Espadon", "Homard",
-        "Crabe", "Phoque", "Otarie", "Morse", "Narval", "Cachalot",
-        "Murene", "Etoile de mer", "Poisson-clown"
-      ]
-    },
-    {
-      "nom": "Races de chiens",
-      "mots": [
-        "Labrador", "Berger allemand", "Golden retriever", "Bouledogue francais",
-        "Chihuahua", "Husky", "Beagle", "Rottweiler", "Caniche", "Border collie",
-        "Teckel", "Boxer", "Dalmatien", "Shiba inu", "Cocker", "Yorkshire",
-        "Malinois", "Saint-Bernard", "Basset hound", "Doberman"
-      ]
-    },
-    {
-      "nom": "Sports de ballon",
-      "mots": [
-        "Football", "Basketball", "Rugby", "Volleyball", "Handball",
-        "Water-polo", "Football americain", "Futsal", "Beach-volley",
-        "Baseball", "Cricket", "Hockey sur gazon", "Dodgeball", "Netball",
-        "Rugby a sept", "Kin-ball", "Tchoukball", "Balle au prisonnier",
-        "Pelote basque", "Hurling"
-      ]
-    },
-    {
-      "nom": "Sports de combat",
-      "mots": [
-        "Boxe", "Judo", "Karate", "MMA", "Lutte", "Taekwondo", "Muay-thai",
-        "Kickboxing", "Jiu-jitsu bresilien", "Aikido", "Sumo", "Escrime",
-        "Krav-maga", "Capoeira", "Kung-fu", "Savate", "Sambo", "Catch",
-        "Kendo", "Wing chun"
       ]
     },
     {
@@ -230,39 +176,18 @@
       ]
     },
     {
-      "nom": "Outils de bricolage",
-      "mots": [
-        "Marteau", "Tournevis", "Perceuse", "Scie", "Pince", "Cle a molette",
-        "Niveau a bulle", "Metre ruban", "Ponceuse", "Visseuse", "Burin",
-        "Rabot", "Cutter", "Agrafeuse", "Meuleuse", "Serre-joint", "Tenaille",
-        "Equerre", "Fil a plomb", "Chignole"
-      ]
-    },
-    {
-      "nom": "Ustensiles de cuisine",
-      "mots": [
-        "Louche", "Spatule", "Fouet", "Passoire", "Econome", "Rape",
-        "Rouleau a patisserie", "Ecumoire", "Presse-ail", "Mixeur",
-        "Casserole", "Poele", "Cocotte", "Planche a decouper", "Maryse",
-        "Mandoline", "Chinois", "Sauteuse", "Moule a gateau", "Thermometre de cuisson"
-      ]
-    },
-    {
-      "nom": "Electromenager",
-      "mots": [
-        "Refrigerateur", "Lave-linge", "Lave-vaisselle", "Four", "Micro-ondes",
-        "Aspirateur", "Grille-pain", "Bouilloire", "Robot patissier", "Friteuse",
-        "Congelateur", "Seche-linge", "Cafetiere", "Blender", "Hotte aspirante",
-        "Plaque a induction", "Centrifugeuse", "Cuiseur vapeur", "Machine a pain",
-        "Fer a repasser"
-      ]
-    },
-    {
       "nom": "Reseaux sociaux",
       "mots": [
         "Instagram", "TikTok", "Snapchat", "X", "Facebook", "LinkedIn", "Reddit",
-        "Discord", "YouTube", "Twitch", "Pinterest", "WhatsApp", "Telegram",
-        "BeReal", "Threads", "Tumblr", "Mastodon", "Bluesky", "Vine", "MySpace"
+        "Discord", "YouTube", "Twitch", "Pinterest",
+        "BeReal", "Mastodon", "Vine", "Tweeter"
+      ]
+    },
+    
+    {
+      "nom": "Reseau social",
+      "mots": [
+        "Tweeter", "X"
       ]
     },
     {
@@ -312,58 +237,12 @@
       ]
     },
     {
-      "nom": "Epices et condiments",
-      "mots": [
-        "Poivre", "Paprika", "Curcuma", "Cumin", "Cannelle", "Muscade",
-        "Gingembre", "Piment", "Safran", "Curry", "Coriandre", "Origan",
-        "Thym", "Laurier", "Clou de girofle", "Cardamome", "Vanille",
-        "Anis etoile", "Sumac", "Ras el-hanout"
-      ]
-    },
-    {
-      "nom": "Sauces",
-      "mots": [
-        "Mayonnaise", "Ketchup", "Moutarde", "Sauce barbecue", "Sauce blanche",
-        "Aioli", "Bearnaise", "Hollandaise", "Bechamel", "Pesto", "Sauce soja",
-        "Sriracha", "Tabasco", "Harissa", "Tzatziki", "Guacamole", "Houmous",
-        "Sauce tartare", "Chimichurri", "Sauce samourai"
-      ]
-    },
-    {
-      "nom": "Vetements du haut",
-      "mots": [
-        "T-shirt", "Chemise", "Pull", "Sweat a capuche", "Veste", "Blouson",
-        "Polo", "Debardeur", "Gilet", "Cardigan", "Blazer", "Doudoune",
-        "Trench", "Bomber", "Perfecto", "Chemisier", "Tunique", "Poncho",
-        "Coupe-vent", "Marcel"
-      ]
-    },
-    {
-      "nom": "Chaussures",
-      "mots": [
-        "Baskets", "Bottes", "Mocassins", "Escarpins", "Sandales", "Tongs",
-        "Ballerines", "Derbies", "Richelieus", "Bottines", "Chaussons",
-        "Claquettes", "Espadrilles", "Sabots", "Cuissardes",
-        "Chaussures de securite", "Crampons", "Chaussons d'escalade",
-        "Palmes", "Rangers"
-      ]
-    },
-    {
       "nom": "Jeux de societe",
       "mots": [
         "Monopoly", "Cluedo", "Risk", "Scrabble", "Uno", "Loup-garou",
         "Trivial Pursuit", "Puissance 4", "Jungle Speed", "Catane",
         "7 Wonders", "Time's Up", "Dixit", "Blanc-Manger Coco", "Echecs",
         "Dames", "Awale", "Mille Bornes", "Kem's", "Skyjo"
-      ]
-    },
-    {
-      "nom": "Pieces de la maison",
-      "mots": [
-        "Cuisine", "Salon", "Chambre", "Salle de bain", "Toilettes", "Entree",
-        "Couloir", "Garage", "Cave", "Grenier", "Buanderie", "Bureau",
-        "Veranda", "Cellier", "Dressing", "Sous-sol", "Terrasse", "Balcon",
-        "Mezzanine", "Salle a manger"
       ]
     },
     {
@@ -566,13 +445,19 @@
     {
       "nom": "Mouvements de Force Athletique",
       "mots": [
-        "Developpe couche", "Souleve de terre", "Squat", "Developpe militaire"
+        "Developpe couche", "Souleve de terre", "Squat"
       ]
     },
     {
       "nom": "Groupes musculaires (Haut du corps)",
       "mots": [
         "Pectoraux", "Dorsaux", "Deltoides", "Biceps", "Triceps", "Trapezes", "Abdominaux", "Avant-bras"
+      ]
+    },
+    {
+      "nom": "Groupes musculaires (Bas du corps)",
+      "mots": [
+        "Mollets", "Quadriceps", "Fessiers", "Ischio-jambiers", "Abducteurs"
       ]
     },
     {
@@ -652,17 +537,6 @@
       ]
     },
     {
-      "nom": "Mascottes et Compagnons Animaux",
-      "mots": [
-        "Pochita (Chainsaw Man)",
-        "Bond Forger (Spy x Family)",
-        "Puck (Re:ZERO)",
-        "Totoro (Mon Voisin Totoro)",
-        "Happy (Fairy Tail)",
-        "Koro-sensei (Assassination Classroom)"
-      ]
-    },
-    {
       "nom": "Mentors et Professeurs",
       "mots": [
         "Koro-sensei (Assassination Classroom)",
@@ -738,7 +612,7 @@
       ]
     },
     {
-      "nom": "Jeu de mots - Bataille de Gojo",
+      "nom": "Gojo",
       "mots": [
         "Satoru Gojo (Jujutsu Kaisen)",
         "Wakana Gojo (My Dress up Darling)"
@@ -759,10 +633,11 @@
       ]
     },
     {
-      "nom": "Jeu de mots - Bocchi",
+      "nom": "Pierre",
       "mots": [
         "Bocchi (Bocchi The Rock)",
-        "Gnocchi"
+        "The Rock",
+        "Dwayne Jhonson"
       ]
     },
     {
@@ -770,13 +645,6 @@
       "mots": [
         "Freezer (Dragon Ball)",
         "Frigo"
-      ]
-    },
-    {
-      "nom": "Jeu de mots - SAO",
-      "mots": [
-        "Kirito (SAO)",
-        "Burrito"
       ]
     },
     {

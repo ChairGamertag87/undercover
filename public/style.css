@@ -1347,6 +1347,17 @@ input[type="range"] {
 /* Responsive                                                        */
 /* ---------------------------------------------------------------- */
 
+/* Version PC : interface globalement agrandie sur les grands ecrans.
+   Les hauteurs en vh ne sont pas divisees par le zoom, on les compense. */
+@media (min-width: 1280px) {
+  body { zoom: 1.1; }
+  .modal-box { max-height: 78vh; }
+}
+@media (min-width: 1600px) {
+  body { zoom: 1.2; }
+  .modal-box { max-height: 71vh; }
+}
+
 @media (max-width: 1080px) {
   .play-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .panel-chat { grid-column: 1 / -1; }

@@ -802,7 +802,6 @@ function handleMessage(ws, data) {
       if (!player.alive) return fail(ws, 'Les joueurs éliminés ne votent pas.');
       const target = room.players.get(String(msg.target_id || ''));
       if (!target || !target.alive) return fail(ws, 'Cible invalide.');
-      if (target.id === player.id) return fail(ws, 'Impossible de voter pour toi.');
       if (room.tie_between) {
         if (room.tie_between.includes(player.id)) {
           return fail(ws, 'Tu es à égalité, tu ne votes pas dans ce second tour.');

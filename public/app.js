@@ -613,7 +613,7 @@ function canVoteFor(player) {
   const mine = myPlayer();
   if (!mine || !mine.alive) return false;
   if (mine.has_voted) return false;
-  if (!player.alive || player.id === me.id) return false;
+  if (!player.alive) return false;
   if (room.tie_between) {
     if (room.tie_between.includes(me.id)) return false;
     return room.tie_between.includes(player.id);
@@ -867,10 +867,13 @@ function renderVotePanel(mine) {
     addText('Ton vote est enregistré. On attend les autres.');
   } else {
     const picked = vote_pick ? playerById(vote_pick) : null;
+    const self_pick = picked && me && picked.id === me.id;
     addText(picked
-      ? `Tu désignes <strong>${escapeHtml(picked.name)}</strong>. Confirme pour valider.`
-      : 'Clique sur une fiche pour désigner un suspect.');
-    const button = addButton(picked ? `Voter contre ${picked.name}` : 'Choisis un suspect', 'primary', () => {
+      ? (self_pick
+        ? 'Tu votes contre <strong>toi-même</strong>. Confirme pour valider.'
+        : `Tu désignes <strong>${escapeHtml(picked.name)}</strong>. Confirme pour valider.`)
+      : 'Clique sur une fiche pour désigner un suspect (toi compris).');
+    const button = addButton(picked ? (self_pick ? 'Voter contre toi' : `Voter contre ${picked.name}`) : 'Choisis un suspect', 'primary', () => {
       if (!vote_pick) return;
       sendMessage({ type: 'cast_vote', target_id: vote_pick });
     });

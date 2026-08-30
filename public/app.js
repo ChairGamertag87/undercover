@@ -528,6 +528,7 @@ function renderSuspects() {
       node.className = 'suspect';
       node.dataset.id = player.id;
       node.innerHTML = `
+        <div class="suspect-order" data-show="0"></div>
         <div class="suspect-photo"></div>
         <div class="suspect-name"></div>
         <div class="suspect-line"></div>
@@ -536,6 +537,13 @@ function renderSuspects() {
       node.addEventListener('click', () => onSuspectClick(player.id));
       suspect_nodes.set(player.id, node);
     }
+
+    const vocal_order = !room.settings.typed_clues && (room.phase === 'reveal' || room.phase === 'discussion')
+      ? speakOrderOf(player.id)
+      : null;
+    const order_box = node.querySelector('.suspect-order');
+    order_box.textContent = vocal_order ? String(vocal_order) : '';
+    order_box.dataset.show = vocal_order ? '1' : '0';
 
     node.querySelector('.suspect-photo').textContent = initials(player.name);
     node.querySelector('.suspect-name').textContent = player.name;
@@ -586,7 +594,20 @@ function suspectLine(player, index) {
     if (room.tie_between && room.tie_between.includes(player.id)) return 'à égalité';
     return player.has_voted ? 'a voté' : 'hésite encore';
   }
+  if (room.phase === 'discussion' && !room.settings.typed_clues) {
+    const order = speakOrderOf(player.id);
+    if (order) return order === 1 ? 'parle en 1er' : `parle en ${order}e`;
+  }
   return `matricule ${pad2(index + 1)}`;
+}
+
+function speakOrderOf(player_id) {
+  const order = (room.round_order || []).filter((id) => {
+    const p = playerById(id);
+    return p && p.alive;
+  });
+  const index = order.indexOf(player_id);
+  return index === -1 ? null : index + 1;
 }
 
 function lastClueOf(player_id) {
@@ -600,7 +621,7 @@ function canVoteFor(player) {
   const mine = myPlayer();
   if (!mine || !mine.alive) return false;
   if (mine.has_voted) return false;
-  if (!player.alive || player.id === me.id) return false;
+  if (!player.alive) return false;
   if (room.tie_between) {
     if (room.tie_between.includes(me.id)) return false;
     return room.tie_between.includes(player.id);
@@ -648,12 +669,43 @@ function renderAction() {
   dom.action_body.innerHTML = '';
   dom.action_meta.textContent = '';
 
-  if (room.phase === 'reveal') return renderRevealPanel(mine);
-  if (room.phase === 'clues') return renderCluesPanel(mine);
-  if (room.phase === 'discussion') return renderDiscussionPanel(mine);
-  if (room.phase === 'vote') return renderVotePanel(mine);
-  if (room.phase === 'vote_result') return renderResultPanel();
-  if (room.phase === 'mr_white_guess') return renderGuessPanel(mine);
+  if (room.phase === 'reveal') renderRevealPanel(mine);
+  else if (room.phase === 'clues') renderCluesPanel(mine);
+  else if (room.phase === 'discussion') renderDiscussionPanel(mine);
+  else if (room.phase === 'vote') renderVotePanel(mine);
+  else if (room.phase === 'vote_result') renderResultPanel();
+  else if (room.phase === 'mr_white_guess') renderGuessPanel(mine);
+
+  if (['reveal', 'clues', 'discussion', 'vote'].includes(room.phase)) renderRestartVote(mine);
+}
+
+function renderRestartVote(mine) {
+  const eligible = room.players.filter((p) => p.alive && p.connected);
+  const votes = room.restart_votes || [];
+  const box = document.createElement('div');
+  box.className = 'restart-vote';
+  if (mine && mine.alive) {
+    const voted = me && votes.includes(me.id);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mini-btn restart-btn';
+    button.dataset.on = voted ? '1' : '0';
+    button.textContent = voted
+      ? `Annuler ma demande de relance (${votes.length}/${eligible.length})`
+      : `Les mots ne conviennent pas (${votes.length}/${eligible.length})`;
+    button.addEventListener('click', () => sendMessage({ type: 'restart_words' }));
+    box.appendChild(button);
+    const hint = document.createElement('span');
+    hint.className = 'restart-hint';
+    hint.textContent = 'Si tous les joueurs en jeu votent la relance : nouveaux mots, nouveaux rôles.';
+    box.appendChild(hint);
+  } else if (votes.length) {
+    const hint = document.createElement('span');
+    hint.className = 'restart-hint';
+    hint.textContent = `${votes.length}/${eligible.length} joueurs demandent une relance des mots.`;
+    box.appendChild(hint);
+  }
+  if (box.childElementCount) dom.action_body.appendChild(box);
 }
 
 function addText(html) {
@@ -779,7 +831,25 @@ function renderDiscussionPanel(mine) {
   dom.action_title.textContent = 'Débat';
   dom.action_meta.textContent = room.settings.discussion_seconds ? 'chrono lancé' : 'sans chrono';
   buildDossier();
-  addText('Tous les indices sont déposés. Accusez, défendez, cherchez la fausse note. Le vote suit.');
+  if (!room.settings.typed_clues) {
+    addText('Mode vocal : donnez vos indices à voix haute dans l\'ordre ci-dessous, puis débattez.');
+    const queue = document.createElement('div');
+    queue.className = 'turn-queue';
+    queue.dataset.vocal = '1';
+    const order = (room.round_order || []).map((id) => playerById(id)).filter((p) => p && p.alive);
+    order.forEach((player, index) => {
+      const row = document.createElement('div');
+      row.className = 'queue-item';
+      row.dataset.current = index === 0 ? '1' : '0';
+      row.dataset.done = '0';
+      const mark = me && player.id === me.id ? ' (toi)' : '';
+      row.innerHTML = `<span>${pad2(index + 1)}</span><span>${escapeHtml(player.name)}${mark}</span><span class="queue-clue">${index === 0 ? 'commence' : ''}</span>`;
+      queue.appendChild(row);
+    });
+    dom.action_body.appendChild(queue);
+  } else {
+    addText('Tous les indices sont déposés. Accusez, défendez, cherchez la fausse note. Le vote suit.');
+  }
   if (isHost()) addButton('Ouvrir le vote', 'primary', () => sendMessage({ type: 'open_vote' }));
   else addText('L\'hôte ouvre le vote quand le débat est fini.');
   if (mine && !mine.alive) addText('Tu es éliminé : tu peux parler, mais tu ne votes plus.');
@@ -806,10 +876,13 @@ function renderVotePanel(mine) {
     addText('Ton vote est enregistré. On attend les autres.');
   } else {
     const picked = vote_pick ? playerById(vote_pick) : null;
+    const self_pick = picked && me && picked.id === me.id;
     addText(picked
-      ? `Tu désignes <strong>${escapeHtml(picked.name)}</strong>. Confirme pour valider.`
-      : 'Clique sur une fiche pour désigner un suspect.');
-    const button = addButton(picked ? `Voter contre ${picked.name}` : 'Choisis un suspect', 'primary', () => {
+      ? (self_pick
+        ? 'Tu votes contre <strong>toi-même</strong>. Confirme pour valider.'
+        : `Tu désignes <strong>${escapeHtml(picked.name)}</strong>. Confirme pour valider.`)
+      : 'Clique sur une fiche pour désigner un suspect (toi compris).');
+    const button = addButton(picked ? (self_pick ? 'Voter contre toi' : `Voter contre ${picked.name}`) : 'Choisis un suspect', 'primary', () => {
       if (!vote_pick) return;
       sendMessage({ type: 'cast_vote', target_id: vote_pick });
     });

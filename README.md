@@ -109,6 +109,7 @@ node test-sim.js              # partie complète à 6 joueurs
 node test-scenarios.js civils # victoire civils
 node test-scenarios.js mrwhite# Mr White qui devine juste
 node test-reconnect.js        # coupure, reconnexion, manche suivante
+node test-features.js         # ordre vocal, relance unanime, auto-vote
 ```
 
 ## Limites connues

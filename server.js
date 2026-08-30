@@ -158,6 +158,7 @@ function createRoom() {
     turn_pointer: 0,
     clue_history: [],
     votes: new Map(),
+    restart_votes: new Set(),
     tie_between: null,
     tie_attempt: 0,
     deadline_ts: null,
@@ -246,6 +247,7 @@ function roomState(room) {
     clue_history: room.clue_history,
     votes: room.phase === 'vote_result' || room.phase === 'ended' ? Array.from(room.votes.entries()) : [],
     vote_count: room.votes.size,
+    restart_votes: Array.from(room.restart_votes),
     alive_count: alive.length,
     tie_between: room.tie_between,
     deadline_ts: room.deadline_ts,
@@ -379,6 +381,7 @@ function startGame(room) {
   room.turn_pointer = 0;
   room.clue_history = [];
   room.votes = new Map();
+  room.restart_votes = new Set();
   room.tie_between = null;
   room.tie_attempt = 0;
   room.last_eliminated = null;
@@ -564,6 +567,7 @@ function resetToLobby(room) {
   room.round = 0;
   room.clue_history = [];
   room.votes = new Map();
+  room.restart_votes = new Set();
   room.tie_between = null;
   room.tie_attempt = 0;
   room.last_eliminated = null;
@@ -824,6 +828,25 @@ function handleMessage(ws, data) {
       if (room.phase !== 'vote') return;
       if (!room.votes.size) return fail(ws, 'Aucun vote enregistré pour le moment.');
       resolveVote(room);
+      broadcast(room);
+      break;
+    }
+    case 'restart_words': {
+      const allowed = ['reveal', 'clues', 'discussion', 'vote'];
+      if (!allowed.includes(room.phase)) return;
+      if (!player.alive) return fail(ws, 'Les joueurs éliminés ne participent pas à la relance.');
+      if (room.restart_votes.has(player.id)) {
+        room.restart_votes.delete(player.id);
+      } else {
+        room.restart_votes.add(player.id);
+        pushChat(room, null, `${player.name} demande une relance des mots (${room.restart_votes.size} pour).`, 'system');
+      }
+      const eligible = alivePlayers(room).filter((p) => p.connected);
+      if (eligible.length && eligible.every((p) => room.restart_votes.has(p.id))) {
+        pushChat(room, null, 'Relance votée à l\'unanimité : nouveaux mots, nouveaux rôles.', 'system');
+        const error = startGame(room);
+        if (error) resetToLobby(room);
+      }
       broadcast(room);
       break;
     }

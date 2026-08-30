@@ -661,12 +661,43 @@ function renderAction() {
   dom.action_body.innerHTML = '';
   dom.action_meta.textContent = '';
 
-  if (room.phase === 'reveal') return renderRevealPanel(mine);
-  if (room.phase === 'clues') return renderCluesPanel(mine);
-  if (room.phase === 'discussion') return renderDiscussionPanel(mine);
-  if (room.phase === 'vote') return renderVotePanel(mine);
-  if (room.phase === 'vote_result') return renderResultPanel();
-  if (room.phase === 'mr_white_guess') return renderGuessPanel(mine);
+  if (room.phase === 'reveal') renderRevealPanel(mine);
+  else if (room.phase === 'clues') renderCluesPanel(mine);
+  else if (room.phase === 'discussion') renderDiscussionPanel(mine);
+  else if (room.phase === 'vote') renderVotePanel(mine);
+  else if (room.phase === 'vote_result') renderResultPanel();
+  else if (room.phase === 'mr_white_guess') renderGuessPanel(mine);
+
+  if (['reveal', 'clues', 'discussion', 'vote'].includes(room.phase)) renderRestartVote(mine);
+}
+
+function renderRestartVote(mine) {
+  const eligible = room.players.filter((p) => p.alive && p.connected);
+  const votes = room.restart_votes || [];
+  const box = document.createElement('div');
+  box.className = 'restart-vote';
+  if (mine && mine.alive) {
+    const voted = me && votes.includes(me.id);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mini-btn restart-btn';
+    button.dataset.on = voted ? '1' : '0';
+    button.textContent = voted
+      ? `Annuler ma demande de relance (${votes.length}/${eligible.length})`
+      : `Les mots ne conviennent pas (${votes.length}/${eligible.length})`;
+    button.addEventListener('click', () => sendMessage({ type: 'restart_words' }));
+    box.appendChild(button);
+    const hint = document.createElement('span');
+    hint.className = 'restart-hint';
+    hint.textContent = 'Si tous les joueurs en jeu votent la relance : nouveaux mots, nouveaux rôles.';
+    box.appendChild(hint);
+  } else if (votes.length) {
+    const hint = document.createElement('span');
+    hint.className = 'restart-hint';
+    hint.textContent = `${votes.length}/${eligible.length} joueurs demandent une relance des mots.`;
+    box.appendChild(hint);
+  }
+  if (box.childElementCount) dom.action_body.appendChild(box);
 }
 
 function addText(html) {

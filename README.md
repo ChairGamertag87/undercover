@@ -11,6 +11,7 @@ réparties en 20 thèmes.
 - Distribution privée du mot (fiche scellée à maintenir enfoncée)
 - Tour d'indices écrits et archivés, ou mode vocal si vous êtes déjà en discord
 - Débat chronométré, vote à la majorité, gestion des égalités
+- Relance de la manche à l'unanimité si les mots tirés ne conviennent pas
 - Mr White éliminé a une chance de deviner le mot des civils
 - Score cumulé entre les manches (civil 2, undercover 10, Mr White 6)
 - Reconnexion automatique : un F5 en pleine partie ne fait pas perdre sa place

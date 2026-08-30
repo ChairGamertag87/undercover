@@ -399,6 +399,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .mini-btn:hover { border-color: var(--brass); color: var(--brass); }
 
+.restart-vote {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.restart-btn { align-self: flex-start; }
+.restart-btn[data-on="1"] {
+  border-color: var(--rouge);
+  color: var(--rouge);
+  background: rgba(176, 58, 41, 0.12);
+}
+.restart-hint {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
 .rule-line {
   display: flex;
   align-items: center;

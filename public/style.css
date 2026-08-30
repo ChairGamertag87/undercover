@@ -898,6 +898,25 @@ input[type="range"] {
   overflow-wrap: anywhere;
 }
 
+.suspect-order {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 4;
+  display: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--brass);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid var(--felt-0);
+  box-shadow: 0 6px 14px -4px rgba(0, 0, 0, 0.8);
+}
+.suspect-order[data-show="1"] { display: grid; }
+
 .suspect-votes {
   display: flex;
   gap: 3px;
@@ -1076,6 +1095,22 @@ input[type="range"] {
 .queue-item[data-done="1"] { color: var(--muted); }
 .queue-item span:first-child { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
 .queue-item .queue-clue { font-family: var(--font-mono); font-size: 0.78rem; color: var(--brass); }
+
+.turn-queue[data-vocal="1"] { gap: 8px; }
+.turn-queue[data-vocal="1"] .queue-item {
+  grid-template-columns: 34px 1fr auto;
+  padding: 11px 14px;
+  font-size: 1.05rem;
+}
+.turn-queue[data-vocal="1"] .queue-item span:first-child {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--brass);
+}
+.turn-queue[data-vocal="1"] .queue-item[data-current="1"] {
+  border-left-width: 4px;
+  background: rgba(201, 164, 75, 0.16);
+}
 
 .tally { display: grid; gap: 6px; }
 .tally-row {

@@ -528,6 +528,7 @@ function renderSuspects() {
       node.className = 'suspect';
       node.dataset.id = player.id;
       node.innerHTML = `
+        <div class="suspect-order" data-show="0"></div>
         <div class="suspect-photo"></div>
         <div class="suspect-name"></div>
         <div class="suspect-line"></div>
@@ -536,6 +537,13 @@ function renderSuspects() {
       node.addEventListener('click', () => onSuspectClick(player.id));
       suspect_nodes.set(player.id, node);
     }
+
+    const vocal_order = !room.settings.typed_clues && (room.phase === 'reveal' || room.phase === 'discussion')
+      ? speakOrderOf(player.id)
+      : null;
+    const order_box = node.querySelector('.suspect-order');
+    order_box.textContent = vocal_order ? String(vocal_order) : '';
+    order_box.dataset.show = vocal_order ? '1' : '0';
 
     node.querySelector('.suspect-photo').textContent = initials(player.name);
     node.querySelector('.suspect-name').textContent = player.name;
@@ -827,6 +835,7 @@ function renderDiscussionPanel(mine) {
     addText('Mode vocal : donnez vos indices à voix haute dans l\'ordre ci-dessous, puis débattez.');
     const queue = document.createElement('div');
     queue.className = 'turn-queue';
+    queue.dataset.vocal = '1';
     const order = (room.round_order || []).map((id) => playerById(id)).filter((p) => p && p.alive);
     order.forEach((player, index) => {
       const row = document.createElement('div');
